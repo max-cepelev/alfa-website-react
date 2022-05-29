@@ -1,0 +1,136 @@
+// Заголовки, общие БЄМ блоки и проче...
+
+.block{
+   @include adaptiveValue("padding-top", 50, 20);
+   @include adaptiveValue("padding-bottom", 50, 20);
+}
+
+.title{
+   @include adaptiveValue("font-size",48 , 32);
+   line-height: math.div(52, 48);
+   font-weight: 700;
+   text-transform: lowercase;
+}
+
+.text{
+   @include adaptiveValue("font-size",16 ,12 );
+   line-height: math.div(22 , 16);
+}
+
+.item{
+   border: rem(0.5) solid #CACACB;
+   border-radius: rem(10);
+   transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s;
+   @media (any-hover: hover){
+      &:hover{
+         box-shadow: rem(4) rem(4) rem(7) rem(1) rgba(0, 0, 0, 0.15);
+         transform: translate(0,rem(-10));
+      }
+   }
+}
+
+.btn-orange{
+   background-color: #DF754F;
+   color: #fff;
+   box-shadow: rem(2) rem(2) rem(7) rgba(223, 117, 79, 0.53);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+   border-radius: rem(10);
+   @include adaptiveValue("font-size", 14, 12);
+   line-height: math.div(19 , 14);
+   @include adaptiveValue("width",170,146 );
+   @include adaptiveValue("height", 40, 38);
+   transition: all 0.3s ease 0s;
+   @media (any-hover: hover){
+      &:hover{
+         background-color:  #C95F38;
+         box-shadow: none;
+      }
+   }
+}
+
+.btn{
+   background-color: #fff;
+   border: rem(1) solid #DF754F;
+   color: #DF754F;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+   border-radius: rem(10);
+   @include adaptiveValue("font-size", 14, 12);
+   line-height: math.div(19 , 14);
+   @include adaptiveValue("width",170,146 );
+   @include adaptiveValue("height", 40, 38);
+   transition: all 0.3s ease 0s;
+   @media (any-hover: hover){
+      &:hover{
+         background-color: rgba(223, 117, 79, 0.7);
+         color: #fff;
+      }
+   }
+}
+
+.btn-black{
+   background-color: $mainColor;
+   color: #fff;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+   border-radius: rem(10);
+   @include adaptiveValue("font-size", 14, 12);
+   line-height: math.div(19 , 14);
+   @include adaptiveValue("width",170,125 );
+   @include adaptiveValue("height", 40, 38);
+   transition: all 0.3s ease 0s;
+   @media (any-hover: hover){
+      &:hover{
+         background-color: #4A4A4A;
+      }
+   }
+}
+
+.btn-white{
+   background-color: #fff;
+   color: $mainColor;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+   border-radius: rem(10);
+   @include adaptiveValue("font-size", 14, 12);
+   line-height: math.div(19 , 14);
+   @include adaptiveValue("width",170,125 );
+   @include adaptiveValue("height", 40, 38);
+   transition: all 0.3s ease 0s;
+   @media (any-hover: hover){
+      &:hover{
+         background-color: #DEDEDE;
+      }
+   }
+}
+
+
+.blue{
+   background-color: #2F76B3;
+   color: #fff;
+
+}
+.orange{
+   background-color:  #DF754F;
+   color: #fff;
+
+}
+
+.black{
+   background-color: $mainColor;
+   color: #fff;
+
+}
+.white{
+   background-color: #fff;
+   color: $mainColor;
+}
