@@ -1,0 +1,52 @@
+.radiators {
+   @include adaptiveValue("padding-bottom", 70, 30);
+
+   &__container {
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 40, 15);
+   }
+
+   &__info {
+      display: flex;
+      gap: rem(30);
+      justify-content: space-between;
+      @media (max-width: em(768)) {
+         flex-direction: column-reverse;
+      }
+   }
+
+   &__image {
+      align-self: center;
+      img {
+         width: rem(370);
+         height: rem(586);
+         @media (max-width: em(768)) {
+            width: rem(300);
+            height: rem(280);
+         }
+      }
+   }
+
+   &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      row-gap: rem(30);
+   }
+
+   &__row {
+   }
+
+   &__text {
+   }
+
+   &__subtitle {
+      @include adaptiveValue("font-size", 32, 18);
+      line-height: math.div(38, 32);
+      text-transform: lowercase;
+      font-weight: 700;
+      margin-bottom: rem(10);
+   }
+}

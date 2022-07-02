@@ -1,0 +1,221 @@
+.commerce-card {
+   @include adaptiveValue("padding-top", 40, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+
+   &__container {
+   }
+
+   &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: rem(20);
+   }
+
+   &__title {
+      color: $colorBlue;
+      @include adaptiveValue("font-size", 48, 24);
+      font-weight: 700;
+      line-height: math.div(66, 48);
+   }
+
+   &__send {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      column-gap: rem(5);
+      font-size: rem(14);
+      line-height: math.div(19, 14);
+      @media (max-width: em(600)) {
+         span {
+            display: none;
+         }
+      }
+      &::before {
+         font-size: rem(16);
+         color: $colorBlue;
+      }
+   }
+
+   &__body {
+      display: grid;
+      grid-template-columns: minmax(rem(300), rem(750)) auto;
+      justify-content: space-between;
+      column-gap: rem(10);
+      @media (max-width: em(860)) {
+         grid-template-columns: 1fr;
+         justify-items: center;
+         row-gap: rem(20);
+      }
+   }
+
+   &__media {
+      @media (max-width: em(1024)) {
+         display: grid;
+         grid-template-columns: auto;
+         grid-template-rows: auto 1fr;
+      }
+   }
+
+   &__info {
+      @include adaptiveValue("width", 346, 300);
+   }
+}
+
+.commerce-media {
+   &__tabs {
+      display: none;
+      justify-content: space-between;
+      margin-bottom: rem(20);
+      column-gap: rem(4);
+      @media (max-width: em(1024)) {
+         display: flex;
+      }
+   }
+
+   &__tab {
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include adaptiveValue("width", 190, 97);
+      @include adaptiveValue("height", 38, 30);
+   }
+
+   &__images {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   &__image {
+      &:nth-child(1) {
+         @include adaptiveValue("width", 466, 300);
+      }
+      @media (min-width: em(1025)) {
+         &:nth-child(1) {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            left: 0;
+         }
+         &:nth-child(2) {
+            position: absolute;
+            top: 0;
+            right: 0;
+         }
+         &:nth-child(3) {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+         }
+      }
+      @media (max-width: em(1024)) {
+         &:nth-child(1) {
+            display: none;
+            &:target {
+               display: block;
+            }
+         }
+         &:nth-child(2) {
+            display: none;
+            &:target {
+               display: block;
+            }
+         }
+         &:nth-child(3) {
+            display: none;
+            &:target {
+               display: block;
+            }
+         }
+      }
+   }
+}
+
+.commerce-info {
+   &__name {
+      @include adaptiveValue("font-size", 24, 18);
+      line-height: math.div(33, 24);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      text-transform: lowercase;
+      margin-bottom: rem(20);
+      &::before {
+         color: $colorOrange;
+         font-weight: 400;
+      }
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: rem(10);
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      margin-bottom: rem(10);
+   }
+   &__item-big {
+      padding: rem(15);
+      grid-column-start: 1;
+      grid-column-end: 3;
+      display: flex;
+      justify-content: space-between;
+      column-gap: rem(15);
+   }
+
+   &__item {
+      padding: rem(15);
+   }
+
+   &__column {
+   }
+
+   &__title {
+      color: $colorDarkGrey;
+      margin-bottom: rem(10);
+   }
+
+   &__subtitle {
+      display: flex;
+      align-items: center;
+      column-gap: rem(10);
+
+      &::before {
+         color: $colorBlue;
+         font-size: rem(16);
+      }
+      &:not(:last-child) {
+         margin-bottom: rem(10);
+      }
+   }
+
+   &__price {
+      padding: rem(15);
+   }
+
+   &__value {
+      @include adaptiveValue("font-size", 32, 24);
+      font-weight: 700;
+      margin-bottom: rem(5);
+   }
+
+   &__credit {
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      color: $colorOrange;
+      margin-bottom: rem(10);
+   }
+
+   &__button {
+      width: 100%;
+      height: rem(40);
+   }
+}

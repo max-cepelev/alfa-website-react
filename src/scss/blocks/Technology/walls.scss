@@ -1,0 +1,64 @@
+.walls {
+   @include adaptiveValue("padding-top", 50, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+   background: $colorGrey;
+
+   &__container {
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 20, 10);
+   }
+
+   &__text {
+      max-width: rem(770);
+      @include adaptiveValue("margin-bottom", 40, 30);
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @include adaptiveValue("gap", 30, 10);
+      @media (max-width: em(1024)) {
+         grid-template-columns: 1fr;
+      }
+   }
+}
+
+.walls-items {
+   &__item {
+      display: flex;
+      flex-direction: column;
+
+      overflow: hidden;
+      padding: rem(20);
+      background-color: #fff;
+   }
+
+   &__image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: rem(30);
+      img {
+         max-width: 100%;
+         @include adaptiveValue("height", 305, 226);
+      }
+   }
+
+   &__content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(15);
+   }
+
+   &__title {
+      text-transform: lowercase;
+      @include adaptiveValue("font-size", 32, 22);
+      font-weight: 700;
+   }
+
+   &__text {
+   }
+}

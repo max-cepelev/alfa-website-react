@@ -1,0 +1,40 @@
+.info-home {
+   @include adaptiveValue("padding-top", 70, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+   background: $colorGrey;
+
+   &__container {
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      @include adaptiveValue("gap", 30, 10);
+
+      @media (max-width: em(1024)) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: em(600)) {
+         grid-template-columns: 1fr;
+      }
+   }
+
+   &__item {
+      padding: rem(20) rem(20) rem(30) rem(20);
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(10);
+   }
+
+   &__title {
+      @include adaptiveValue("font-size", 36, 22);
+      line-height: math.div(38, 36);
+      font-weight: 700;
+   }
+
+   &__text {
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+   }
+}

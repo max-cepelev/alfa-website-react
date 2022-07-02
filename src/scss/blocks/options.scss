@@ -1,0 +1,127 @@
+.options {
+   background-color: $colorGrey;
+
+   &__container {
+   }
+
+   &__body {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue("row-gap", 80, 40);
+      @include adaptiveValue("padding-top", 50, 20);
+      @include adaptiveValue("padding-bottom", 50, 20);
+   }
+
+   &__image {
+      position: absolute;
+      right: 0;
+      top: 0;
+      @include adaptiveValue("width", 485, 300, 1170, 768, 1);
+      @media (max-width: em(768)) {
+         display: none;
+      }
+   }
+}
+
+.options-content {
+   max-width: rem(470);
+
+   &__title {
+      margin-bottom: rem(20);
+   }
+
+   &__subtitle {
+      @include adaptiveValue("font-size", 22, 18);
+      font-weight: 700;
+      line-height: math.div(30, 22);
+      @include adaptiveValue("margin-bottom", 20, 10);
+
+      span {
+         color: $colorOrange;
+      }
+   }
+
+   &__text {
+      @include adaptiveValue("margin-bottom", 40, 30);
+   }
+
+   &__buttons {
+      display: flex;
+      column-gap: rem(20);
+      @media (max-width: em(426)) {
+         justify-content: space-between;
+         column-gap: rem(5);
+      }
+   }
+
+   &__button {
+      @include adaptiveValue("width", 170, 146);
+      height: rem(40);
+   }
+}
+
+.options-items {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   @include adaptiveValue("gap", 30, 10);
+
+   @media (max-width: em(1024)) {
+      grid-template-columns: repeat(2, 1fr);
+   }
+
+   @media (max-width: em(650)) {
+      grid-template-columns: 1fr;
+   }
+
+   &__item {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__image {
+      width: 100%;
+
+      @media (max-width: em(1024)) {
+         display: none;
+      }
+   }
+
+   &__text {
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(10);
+      flex: 1 1 auto;
+      padding: rem(15) rem(20) 0;
+      @include adaptiveValue("padding-bottom", 45, 15);
+   }
+
+   &__title {
+      @include adaptiveValue("font-size", 32, 18);
+      font-weight: 700;
+
+      &::before {
+         display: none;
+      }
+
+      @media (max-width: em(460)) {
+         display: flex;
+         flex-direction: row-reverse;
+         justify-content: space-between;
+         align-items: center;
+
+         &::before {
+            font-size: rem(14);
+            display: block;
+            transform: rotate(-90deg);
+         }
+      }
+   }
+
+   &__subtitle {
+      @media (max-width: em(460)) {
+         display: none;
+      }
+   }
+}

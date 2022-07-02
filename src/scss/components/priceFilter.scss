@@ -1,0 +1,18 @@
+.filter-price {
+   position: relative;
+   @include adaptiveValue("font-size", 14, 12);
+   line-height: math.div(19, 14);
+   height: rem(40);
+   @include adaptiveValue("width", 308, 300);
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   span {
+      color: $colorDarkGrey;
+   }
+   &__input {
+      text-align: center;
+      @include adaptiveValue("width", 80, 70);
+      font-weight: 700;
+   }
+}

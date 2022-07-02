@@ -1,0 +1,87 @@
+.reception {
+   @include adaptiveValue("padding-top", 50, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+   &__container {
+   }
+
+   &__title {
+      margin-bottom: rem(20);
+   }
+
+   &__subtitle {
+      @include adaptiveValue("font-size", 32, 22);
+      line-height: math.div(44, 32);
+      font-weight: 700;
+      @include adaptiveValue("margin-bottom", 40, 20);
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @include adaptiveValue("gap", 30, 10);
+      @media (max-width: em(1024)) {
+         grid-template-columns: 1fr;
+      }
+   }
+}
+
+.reception-items {
+   &__item {
+      padding: rem(20);
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue("row-gap", 20, 10);
+      &:nth-child(4n + 1) {
+         span {
+            color: $colorBlue;
+         }
+      }
+      &:nth-child(4n + 2) {
+         span {
+            color: $colorOrange;
+         }
+      }
+      &:nth-child(4n + 4) {
+         span {
+            color: $mainColor;
+         }
+      }
+      &:nth-child(4n + 3) {
+         span {
+            color: #fff;
+            background-color: $mainColor;
+         }
+      }
+   }
+
+   &__title {
+      font-weight: 700;
+      @include adaptiveValue("font-size", 32, 18);
+      text-transform: lowercase;
+      display: flex;
+      column-gap: rem(10);
+      @media (max-width: em(1024)) {
+         align-items: center;
+      }
+      span {
+         @include adaptiveValue("font-size", 32, 24);
+         flex: 0 0 rem(40);
+         width: rem(40);
+         height: rem(40);
+         background-color: #fff;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+      div {
+         margin-top: rem(-10);
+         @media (max-width: em(1024)) {
+            margin-top: rem(0);
+         }
+      }
+   }
+
+   &__text {
+      flex-direction: 1 1 auto;
+   }
+}

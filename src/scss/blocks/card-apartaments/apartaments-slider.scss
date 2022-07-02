@@ -1,0 +1,97 @@
+.apartaments-slider {
+  @include adaptiveValue('padding-bottom', 70, 30);
+
+  &__title {
+    @include adaptiveValue('margin-bottom', 40, 30);
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
+    column-gap: rem(10);
+  }
+
+  &__item {
+    @include adaptiveValue('padding', 20, 10);
+    @include adaptiveValue('width', 268, 202);
+    border: rem(0.5) solid $colorDarkGrey;
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue('row-gap', 20, 10);
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__content {
+    @include adaptiveValue('font-size', 18, 16);
+    line-height: math.div(25, 18);
+    font-weight: 700;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue('row-gap', 20, 10);
+  }
+
+  &__subtitle {
+    @include adaptiveValue('font-size', 18, 16);
+    line-height: math.div(25, 18);
+    font-weight: 700;
+  }
+
+  &__info {
+    @include adaptiveValue('font-size', 14, 12);
+    line-height: math.div(19, 14);
+    flex: 1 1 auto;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(10);
+    span {
+      display: flex;
+      align-items: center;
+      column-gap: rem(8);
+      &::before {
+        color: $colorBlue;
+        font-size: rem(16);
+      }
+    }
+  }
+
+  &__price {
+  }
+
+  &__control-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: rem(20);
+  }
+
+  &__pagination {
+    @include adaptiveValue('margin-top', 40, 20);
+  }
+
+  &__arrows {
+    display: flex;
+    column-gap: rem(10);
+    @media (max-width: em(768)) {
+      display: none;
+    }
+  }
+
+  &__arrow-prev {
+    &::before {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__arrow-next {
+    &::before {
+      transform: rotate(-90deg);
+    }
+  }
+}

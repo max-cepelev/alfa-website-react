@@ -1,0 +1,219 @@
+//====================================================================================================
+.footer {
+   background-color: $colorBlue;
+   color: #fff;
+   padding: rem(30) 0;
+
+   &__container {
+   }
+
+   &__main {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      margin-bottom: rem(30);
+      @media (max-width: em(1024)) {
+         @include adaptiveValue("column-gap", 100, 40, 1024, 768, 1);
+      }
+      @media (max-width: em(768)) {
+         grid-template-columns: auto auto;
+      }
+      @media (max-width: em(555)) {
+         grid-template-columns: 1fr;
+      }
+   }
+
+   &__copy {
+      border-top: rem(1) solid #fff;
+      padding-top: rem(30);
+   }
+}
+.main-footer {
+   &__logo {
+      @media (max-width: em(768)) {
+         margin-bottom: rem(30);
+      }
+      img {
+         @include adaptiveValue("width", 169, 103);
+         @include adaptiveValue("height", 60, 36);
+      }
+   }
+
+   &__text {
+      line-height: math.div(22, 16);
+      margin-top: rem(40);
+      @media (max-width: em(768)) {
+         display: none;
+      }
+   }
+
+   &__menu {
+      display: flex;
+      justify-content: center;
+      @include adaptiveValue("column-gap", 95, 60, 1170, 1024, 1);
+      @media (max-width: em(1024)) {
+         flex-direction: column;
+      }
+      @media (max-width: em(768)) {
+         grid-row-start: 2;
+         grid-row-end: 3;
+      }
+   }
+
+   &__contacts {
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: math.div(22, 16);
+      row-gap: rem(20);
+      @media (max-width: em(768)) {
+         grid-row-start: 2;
+         grid-row-end: 3;
+      }
+      @media (max-width: em(555)) {
+         margin-top: rem(30);
+         grid-row-start: 3;
+         grid-row-end: 4;
+      }
+   }
+}
+.menu-footer {
+   &__lists {
+      display: flex;
+      justify-content: center;
+      @include adaptiveValue("column-gap", 95, 40, 1170, 1024, 1);
+      @media (max-width: em(1024)) {
+         justify-content: space-between;
+      }
+      @media (max-width: em(555)) {
+         justify-content: start;
+      }
+   }
+
+   &__list {
+      @media (max-width: em(1024)) {
+         margin-bottom: rem(20);
+      }
+   }
+
+   &__item {
+      &:not(:last-child) {
+         margin-bottom: rem(15);
+      }
+   }
+
+   &__link {
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: math.div(22, 16);
+      @media (any-hover: hover) {
+         &:hover {
+            border-bottom: rem(1) solid #fff;
+         }
+      }
+   }
+
+   &__spollers {
+      @media (max-width: em(1024)) {
+         padding: rem(8) 0;
+         align-self: stretch;
+         border-top: rem(1) solid #dddddd;
+         border-bottom: rem(1) solid #dddddd;
+      }
+   }
+}
+.spollers {
+   &__title {
+      cursor: text;
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: math.div(22, 16);
+      margin-bottom: rem(15);
+      &::before {
+         display: none;
+      }
+      @media (max-width: em(1024)) {
+         cursor: pointer;
+         margin-bottom: 0;
+         display: flex;
+         align-items: center;
+         flex-direction: row-reverse;
+         column-gap: rem(10);
+         span {
+            display: none;
+         }
+         &::before {
+            margin-top: rem(4);
+            display: block;
+            transition: transform 0.3s ease 0s;
+         }
+      }
+      &._spoller-active {
+         @include adaptiveValue("margin-bottom", 20, 15);
+         &::before {
+            transform: rotate(-180deg);
+         }
+      }
+   }
+
+   &__list {
+   }
+
+   &__item {
+      &:not(:last-child) {
+         margin-bottom: rem(15);
+      }
+   }
+
+   &__link {
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: math.div(22, 16);
+      @media (any-hover: hover) {
+         &:hover {
+            border-bottom: rem(1) solid #fff;
+         }
+      }
+   }
+}
+.contacts-footer {
+   &__contact {
+      display: flex;
+      column-gap: rem(10);
+      align-items: start;
+      white-space: nowrap;
+      &::before {
+         font-size: rem(18);
+      }
+   }
+
+   &__socials {
+   }
+
+   &__subtitle {
+      margin-bottom: rem(10);
+   }
+
+   &__icons {
+      display: flex;
+      column-gap: rem(10);
+   }
+
+   &__icon {
+      color: $colorBlue;
+      &::before {
+         font-size: rem(20);
+         background-color: #fff;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: rem(30);
+         height: rem(30);
+         transition: all 0.3s ease 0s;
+      }
+      @media (any-hover: hover) {
+         &:hover {
+            &::before {
+               background-color: $colorGrey;
+            }
+         }
+      }
+   }
+}
+//====================================================================================================

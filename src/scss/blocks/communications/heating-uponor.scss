@@ -1,0 +1,26 @@
+.heating-uponor {
+   @include adaptiveValue("padding-top", 50, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+
+   &__container {
+   }
+
+   &__title {
+      @include adaptiveValue("font-size", 32, 18);
+      font-weight: 700;
+      text-transform: lowercase;
+      max-width: rem(910);
+      margin-bottom: rem(20);
+   }
+
+   &__text {
+      display: flex;
+      column-gap: rem(30);
+      span {
+         flex: 0 1 50%;
+      }
+      @media (max-width: em(768)) {
+         display: block;
+      }
+   }
+}

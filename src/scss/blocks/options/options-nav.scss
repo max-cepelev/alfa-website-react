@@ -1,0 +1,29 @@
+.options-nav {
+   @include adaptiveValue("padding-top", 40, 20);
+   @include adaptiveValue("padding-bottom", 50, 30);
+   &__container {
+   }
+
+   &__list {
+      display: grid;
+      grid-template-columns: repeat(5, auto);
+      @include adaptiveValue("column-gap", 10, 5);
+      justify-content: start;
+      overflow: auto;
+      padding: rem(5) 0;
+   }
+
+   &__item {
+      @include adaptiveValue("font-size", 14, 12);
+      @include adaptiveValue("width", 160, 110);
+      @include adaptiveValue("height", 38, 30);
+   }
+
+   &__link {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+}

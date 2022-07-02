@@ -2,13 +2,14 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className="footer block">
+    <footer className="footer">
       <div className="footer__container">
         <div className="footer__main main-footer">
           <div className="main-footer__logo">
-            <img src="/img/logo-footer.svg" alt="" />
+            <img src="/img/logo.svg" alt="" />
             <div className="main-footer__text">
-              © Группа компаний <br /> «Альфа», 2022
+              © Группа компаний <br />
+              «Альфа», 2022
             </div>
           </div>
           <div className="main-footer__menu menu-footer">
@@ -40,7 +41,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className="menu-footer__item">
-                  <a href="#" className="menu-footer__link">
+                  <a href="News.html" className="menu-footer__link">
                     Новости
                   </a>
                 </li>
@@ -97,6 +98,11 @@ export default function Footer() {
                 </li>
                 <li className="spollers__item">
                   <a href="" className="spollers__link">
+                    Дом Hygge
+                  </a>
+                </li>
+                <li className="spollers__item">
+                  <a href="" className="spollers__link">
                     Дом Гавань
                   </a>
                 </li>
@@ -124,8 +130,9 @@ export default function Footer() {
               г. Пермь, ул. Карпинского, 49а
             </a>
             <a href="mailto:" className="contacts-footer__contact _icon-mail">
-              ajakstroi/mail.ru
+              ajakstroi@mail.ru
             </a>
+
             <div className="contacts-footer__socials">
               <div className="contacts-footer__subtitle">Наши соцсети:</div>
               <div className="contacts-footer__icons">

@@ -1,0 +1,38 @@
+.guarantee {
+   background-color: $colorGrey;
+
+   &__container {
+   }
+
+   &__body {
+      display: flex;
+      column-gap: rem(20);
+      @include adaptiveValue("padding-top", 50, 30);
+      @include adaptiveValue("padding-bottom", 70, 30);
+   }
+
+   &__content {
+   }
+
+   &__title {
+      margin-bottom: rem(20);
+   }
+
+   &__subtitle {
+      @include adaptiveValue("font-size", 32, 22);
+      font-weight: 700;
+      margin-bottom: rem(20);
+   }
+
+   &__text {
+   }
+
+   &__image {
+      @include adaptiveValue("margin-top", -50, -30);
+      flex: 0 0 rem(446);
+      height: rem(340);
+      @media (max-width: em(1024)) {
+         display: none;
+      }
+   }
+}

@@ -1,19 +1,19 @@
 * {
   --font-family: 'Aeroport';
-  --font-size: rem(16);
-  --main-color: #333333;
+  --font-size: 16rem;
+  --main-color: #2f76b3;
   --min-width: 320px;
   --max-width: 1920px;
   --max-width-container: 1170px;
   --container-padding: 20px;
 }
 
-body {
+/* body {
   margin: 0;
   font-family: 'Aeroport';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -23,7 +23,9 @@ code {
 @font-face {
   font-family: 'Aeroport';
   font-display: swap;
-  src: local('Aeroport Bold'), url(./fonts/Aeroport-bold.ttf) format('truetype');
+  src: local('Aeroport Bold'), url(./fonts/Aeroport-bold.ttf) format('truetype'),
+    url(./fonts/Aeroport-bold.woff) format('woff'),
+    url(./fonts/Aeroport-bold.woff2) format('woff2');
   font-weight: 700;
   font-style: normal;
 }
@@ -31,14 +33,18 @@ code {
   font-family: 'Aeroport';
   font-display: swap;
   src: local('Aeroport Regular'),
-    url(./fonts/Aeroport-regular.ttf) format('truetype');
+    url(./fonts/Aeroport-regular.ttf) format('truetype'),
+    url(./fonts/Aeroport-regular.woff) format('woff'),
+    url(./fonts/Aeroport-regular.woff2) format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'icons';
   font-display: swap;
-  src: local('Icons'), url(./fonts/icons.ttf) format('truetype');
+  src: local('Icons'), url(./fonts/icons.ttf) format('truetype'),
+    url(./fonts/icons.woff) format('woff'),
+    url(./fonts/icons.woff2) format('woff2');
   font-weight: 400;
   font-style: normal;
 }

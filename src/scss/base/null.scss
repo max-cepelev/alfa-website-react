@@ -39,6 +39,20 @@ textarea {
 	font-family: $fontFamily;
 	font-size: inherit;
 }
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="checkbox"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+   outline: none;
+}
+textarea.input {
+	resize: none;
+	padding: 0px 0px;
+}
 button {
 	cursor: pointer;
 	color: inherit;

@@ -1,0 +1,310 @@
+.apartament {
+   @include adaptiveValue("padding-top", 40, 30);
+   @include adaptiveValue("padding-bottom", 90, 50);
+
+   &__container {
+   }
+
+   &__body {
+   }
+
+   &__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: rem(20);
+   }
+
+   &__title {
+      display: flex;
+      align-items: center;
+      @include adaptiveValue("column-gap", 20, 10);
+      @include adaptiveValue("font-size", 48, 24);
+      font-weight: 700;
+      color: $colorBlue;
+      @media (max-width: em(767)) {
+         span {
+            display: none;
+         }
+      }
+   }
+
+   &__button {
+      @include adaptiveValue("width", 100, 64);
+      @include adaptiveValue("height", 40, 33);
+   }
+
+   &__send {
+      display: flex;
+      column-gap: rem(5);
+      align-items: center;
+      &::before {
+         color: $colorBlue;
+      }
+      @media (max-width: em(1023)) {
+         span {
+            display: none;
+         }
+      }
+   }
+
+   &__card {
+      display: flex;
+      justify-content: space-between;
+      column-gap: rem(5);
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      @media (max-width: em(767)) {
+         flex-direction: column;
+      }
+   }
+   &__plans {
+      display: flex;
+      align-items: flex-end;
+      column-gap: rem(40);
+      @media (max-width: em(767)) {
+         display: none;
+      }
+   }
+}
+
+.card-apartament {
+   &__visual {
+   }
+
+   &__info {
+   }
+
+   &__more {
+   }
+}
+.visual-apartament {
+   &__tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: rem(10);
+      flex-wrap: wrap;
+      column-gap: rem(3);
+      row-gap: rem(10);
+   }
+
+   &__tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include adaptiveValue("width", 190, 97, 1170, 1024, 1);
+      @include adaptiveValue("height", 38, 30, 1170, 1024, 1);
+      column-gap: rem(3);
+      span {
+         @media (max-width: em(1040)) {
+            display: none;
+         }
+      }
+   }
+
+   &__slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media (max-width: em(425)) {
+         flex-direction: column;
+      }
+   }
+
+   &__arrow-prev {
+      @media (max-width: em(425)) {
+         display: none;
+      }
+      &::before {
+         transform: rotate(90deg);
+      }
+   }
+
+   &__image {
+      img {
+         @include adaptiveValue("width", 520, 300, 1170, 1024, 1);
+         @include adaptiveValue("height", 502, 290, 1170, 1024, 1);
+      }
+   }
+
+   &__arrow-next {
+      @media (max-width: em(425)) {
+         display: none;
+      }
+      &::before {
+         transform: rotate(-90deg);
+      }
+   }
+
+   &__pagination {
+      display: none;
+      @media (max-width: em(425)) {
+         display: flex;
+      }
+      margin-bottom: rem(10);
+   }
+}
+
+.mobile {
+   display: none;
+   @media (max-width: em(767)) {
+      display: flex;
+      width: rem(148);
+   }
+}
+
+.info-apartament {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   row-gap: rem(15);
+
+   &__boxes {
+   }
+
+   &__media {
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue("row-gap", 25, 10);
+   }
+
+   &__action {
+      display: flex;
+      column-gap: rem(5);
+      align-items: center;
+      &::before {
+         color: $colorBlue;
+         font-size: rem(20);
+      }
+   }
+
+   &__price {
+   }
+}
+.boxes-apartament {
+   display: flex;
+   flex-direction: column;
+   row-gap: rem(10);
+
+   &__big-box {
+      display: flex;
+      justify-content: space-between;
+      padding: rem(10) rem(15);
+      column-gap: rem(5);
+   }
+
+   &__column {
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(10);
+   }
+
+   &__title {
+      color: $colorDarkGrey;
+      white-space: nowrap;
+   }
+
+   &__subtitle {
+      display: flex;
+      column-gap: rem(10);
+      align-items: center;
+      span {
+         white-space: nowrap;
+      }
+      &::before {
+         color: $colorBlue;
+         font-size: rem(18);
+      }
+   }
+
+   &__small-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: rem(10);
+      justify-content: space-between;
+   }
+
+   &__small-box {
+      padding: rem(10) rem(15);
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(10);
+      &:first-child {
+         display: none;
+         @media (max-width: em(767)) {
+            display: flex;
+         }
+      }
+   }
+}
+.price-apartament {
+   padding: rem(10) rem(15);
+
+   &__title {
+      color: $colorDarkGrey;
+      margin-bottom: rem(8);
+   }
+
+   &__value {
+      @include adaptiveValue("font-size", 32, 24);
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: rem(15);
+      span {
+         color: $colorOrange;
+         @include adaptiveValue("font-size", 14, 12);
+         line-height: math.div(19, 14);
+      }
+   }
+
+   &__button {
+      height: rem(40);
+   }
+}
+.more-apartament {
+   padding: rem(10) 0 rem(10) rem(10);
+   display: flex;
+   flex-direction: column;
+   row-gap: rem(10);
+   max-height: rem(570);
+   @media (max-width: em(1023)) {
+      display: none;
+   }
+
+   &__title {
+   }
+
+   &__subtitle {
+      display: flex;
+      column-gap: rem(15);
+      color: #7b7b7b;
+   }
+
+   &__rows {
+      overflow: auto;
+      margin-right: rem(5);
+      padding-right: rem(15);
+   }
+
+   &__row {
+      display: flex;
+      align-items: center;
+      column-gap: rem(15);
+      &:not(:last-child) {
+         margin-bottom: rem(10);
+      }
+   }
+
+   &__floor {
+      width: rem(40);
+      height: rem(40);
+      background: $colorGrey;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   &__price {
+   }
+}

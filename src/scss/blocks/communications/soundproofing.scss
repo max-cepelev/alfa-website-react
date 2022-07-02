@@ -1,0 +1,136 @@
+.soundproofing {
+   @include adaptiveValue("padding-top", 50, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+
+   &__container {
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 20, 15);
+   }
+
+   &__text {
+      max-width: rem(770);
+      @include adaptiveValue("margin-bottom", 40, 30);
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @include adaptiveValue("gap", 30, 10);
+      @media (max-width: em(1024)) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: em(768)) {
+         grid-template-columns: 1fr;
+      }
+   }
+}
+
+.soundproofing-items {
+   &__item {
+      position: relative;
+      padding: rem(20);
+   }
+
+   &__image {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      @media (min-width: em(1025)) {
+         grid-column-start: 2;
+         grid-column-end: 4;
+      }
+      img {
+         max-width: 100%;
+      }
+   }
+
+   &__title {
+      @include adaptiveValue("font-size", 32, 22);
+      font-weight: 700;
+      text-transform: lowercase;
+      margin-bottom: rem(10);
+   }
+
+   &__text {
+   }
+
+   &__decoration-1 {
+      display: block;
+      @include adaptiveValue("width", 358, 240, 1170, 1024, 1);
+      height: rem(219);
+      border-top: rem(1) solid $mainColor;
+      border-right: rem(1) solid $mainColor;
+      position: absolute;
+      bottom: rem(-235);
+      @include adaptiveValue("left", 340, 290, 1170, 1024, 1);
+      @media (max-width: em(1024)) {
+         display: none;
+      }
+      &::before {
+         content: "";
+         position: absolute;
+         bottom: rem(-6);
+         right: rem(-6);
+         width: rem(12);
+         height: rem(12);
+         border-radius: 50%;
+         background-color: $mainColor;
+      }
+      &::after {
+         content: "";
+         position: absolute;
+         height: rem(16);
+         width: rem(1);
+         border-left: rem(1) solid $mainColor;
+         top: rem(-16);
+         left: 0;
+      }
+   }
+   &__decoration-2 {
+      display: block;
+      @include adaptiveValue("width", 400, 290, 1170, 1024, 1);
+      height: rem(468);
+      border-left: rem(1) solid $mainColor;
+      border-bottom: rem(1) solid $mainColor;
+      position: absolute;
+      bottom: rem(-468);
+      left: rem(45);
+      @media (max-width: em(1024)) {
+         display: none;
+      }
+      &::before {
+         content: "";
+         position: absolute;
+         bottom: rem(-6);
+         right: rem(-6);
+         width: rem(12);
+         height: rem(12);
+         border-radius: 50%;
+         background-color: $mainColor;
+      }
+   }
+   &__decoration-3 {
+      display: block;
+      width: rem(1);
+      height: rem(230);
+      background-color: $mainColor;
+      position: absolute;
+      bottom: rem(-230);
+      right: rem(170);
+      @media (max-width: em(1024)) {
+         display: none;
+      }
+      &::before {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: rem(-6);
+         width: rem(12);
+         height: rem(12);
+         border-radius: 50%;
+         background-color: $mainColor;
+      }
+   }
+}

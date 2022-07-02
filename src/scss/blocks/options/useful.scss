@@ -1,0 +1,34 @@
+.useful {
+   background-color: $colorGrey;
+   @include adaptiveValue("padding-top", 50, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+
+   &__container {
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 40, 20);
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      @include adaptiveValue("gap", 30, 10);
+      @media (max-width: em(768)) {
+         grid-template-columns: 1fr;
+      }
+   }
+
+   &__item {
+      padding: rem(20);
+   }
+
+   &__subtitle {
+      font-weight: 700;
+      @include adaptiveValue("font-size", 32, 22);
+      margin-bottom: rem(20);
+   }
+
+   &__text {
+   }
+}

@@ -1,0 +1,15 @@
+.about-home {
+
+  @include adaptiveValue("padding-top",40 ,30);
+   @include adaptiveValue("padding-bottom", 50, 20);
+
+   &__container {}
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 20, 10);
+   }
+
+   &__text {
+      max-width: rem(570);
+   }
+}

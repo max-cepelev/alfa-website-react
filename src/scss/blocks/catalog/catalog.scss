@@ -1,0 +1,77 @@
+.catalog {
+
+ @include adaptiveValue("padding-top",40 ,30 );
+  @include adaptiveValue("padding-bottom", 70, 30);
+
+   &__container {
+   }
+
+   &__title{
+      @include adaptiveValue("margin-bottom", 40, 30);
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      justify-content: space-between;
+      @include adaptiveValue("gap", 30, 10);
+      @media (max-width: em(600)){
+           grid-template-columns: 1fr;
+      }
+   }
+
+   &__item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+     padding: rem(20);
+     @media (min-width:em(1025)){
+      height: rem(300);
+     }
+
+     img{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        max-width: 100%;
+        @media (max-width: em(1024)){
+             display: none;
+        }
+     }
+   }
+
+   &__title-item {
+      @include adaptiveValue("font-size",32 , 18);
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+      text-transform: lowercase;
+     &::before {
+      display: none;
+   }
+
+   @media (max-width: em(1024)) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+
+      &::before {
+         display: block;
+         font-size: rem(14);
+         transform: rotate(-90deg)
+      }
+   }
+   }
+
+   &__button {
+      position: relative;
+      z-index: 1;
+      width: rem(170);
+      height: rem(40);
+      @media (max-width: em(1024)){
+         display: none;
+    }
+   }
+}

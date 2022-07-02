@@ -1,0 +1,54 @@
+.trade-in {
+   @include adaptiveValue("padding-top", 50, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+   &__container {
+   }
+
+   &__title {
+      margin-bottom: rem(20);
+   }
+
+   &__text {
+      max-width: rem(770);
+      margin-bottom: rem(30);
+   }
+
+   &__button {
+      height: rem(40);
+      @include adaptiveValue("width", 316, 212);
+      @include adaptiveValue("margin-bottom", 40, 30);
+   }
+
+   &__subtitle {
+      @include adaptiveValue("font-size", 32, 22);
+      font-weight: 700;
+      @include adaptiveValue("margin-bottom", 30, 20);
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @include adaptiveValue("gap", 30, 10);
+      @media (max-width: em(768)) {
+         grid-template-columns: 1fr;
+      }
+   }
+}
+
+.trade-in-items {
+   &__item {
+      padding: rem(20);
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__title {
+      margin-bottom: rem(15);
+      font-weight: 700;
+      @include adaptiveValue("font-size", 32, 22);
+   }
+
+   &__text {
+      flex: 1 1 auto;
+   }
+}

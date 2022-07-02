@@ -1,0 +1,85 @@
+.standarts {
+   @include adaptiveValue("padding-top", 50, 20);
+   @include adaptiveValue("padding-bottom", 70, 30);
+
+   &__container {
+   }
+
+   &__body {
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 20, 10);
+   }
+
+   &__text {
+      display: flex;
+      max-width: rem(670);
+      flex-direction: column;
+      @include adaptiveValue("margin-bottom", 40, 20);
+
+      @media (max-width: em(426)) {
+         row-gap: rem(10);
+      }
+   }
+}
+
+.standarts-cards {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   @include adaptiveValue("gap", 30, 10);
+   @include adaptiveValue("gap", 30, 10);
+
+   @media (max-width: em(900)) {
+      grid-template-columns: 1fr;
+   }
+
+   &__card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue("height", 393, 310);
+      @include adaptiveValue("padding", 30, 20);
+   }
+
+   &__title {
+      @include adaptiveValue("font-size", 32, 22);
+      font-weight: 700;
+      @include adaptiveValue("margin-bottom", 20, 10);
+   }
+
+   &__list {
+      flex: 1 1 auto;
+      padding-left: rem(5);
+   }
+
+   &__item {
+      display: flex;
+      align-items: center;
+      column-gap: rem(8);
+      @include adaptiveValue("font-size", 16, 12);
+      line-height: math.div(22, 16);
+
+      &:before {
+         content: "";
+         background-color: #fff;
+         align-self: start;
+         @include adaptiveValue("margin-top", 9, 6);
+         flex: 0 0 rem(5);
+         height: rem(5);
+         border-radius: 50%;
+      }
+   }
+
+   &__button {
+      @include adaptiveValue("width", 170, 125);
+      height: rem(40);
+   }
+
+   &__image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      max-width: 45%;
+   }
+}

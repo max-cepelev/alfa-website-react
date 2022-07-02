@@ -1,0 +1,69 @@
+.subsidies {
+   @include adaptiveValue("padding-top", 50, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+   &__container {
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 40, 30);
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @include adaptiveValue("gap", 30, 10);
+      @media (max-width: em(1024)) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: em(768)) {
+         grid-template-columns: 1fr;
+      }
+   }
+}
+
+.subsidies-items {
+   &__item {
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__image {
+      position: relative;
+      width: 100%;
+      height: rem(234);
+      img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         object-position: top;
+      }
+   }
+
+   &__content {
+      padding: rem(20);
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 20, 10);
+      @include adaptiveValue("font-size", 32, 22);
+      font-weight: 700;
+      text-transform: lowercase;
+   }
+
+   &__text {
+      margin-bottom: rem(30);
+      flex: 1 1 auto;
+   }
+
+   &__button {
+      width: rem(170);
+
+      height: rem(40);
+   }
+}

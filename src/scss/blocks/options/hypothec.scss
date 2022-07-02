@@ -1,0 +1,77 @@
+.hypothec {
+   background-color: $colorGrey;
+   @include adaptiveValue("padding-top", 40, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+   &__container {
+   }
+
+   &__top {
+      position: relative;
+      display: flex;
+      column-gap: rem(45);
+      @include adaptiveValue("margin-bottom", 40, 30);
+   }
+
+   &__content {
+   }
+
+   &__image {
+      @include adaptiveValue("margin-top", -40, -30);
+      @media (max-width: em(1024)) {
+         display: none;
+      }
+   }
+
+   &__title {
+      margin-bottom: rem(20);
+   }
+
+   &__text {
+      margin-bottom: rem(30);
+   }
+
+   &__button {
+      @include adaptiveValue("width", 315, 210);
+      height: rem(40);
+   }
+
+   &__subtitle {
+      @include adaptiveValue("font-size", 32, 22);
+      text-transform: lowercase;
+      font-weight: 700;
+      line-height: math.div(44, 32);
+      @include adaptiveValue("margin-bottom", 30, 20);
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      @include adaptiveValue("gap", 30, 10);
+      @media (max-width: em(1024)) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: em(600)) {
+         grid-template-columns: 1fr;
+      }
+   }
+}
+
+.hypothec-items {
+   &__item {
+   }
+
+   &__image {
+      width: 100%;
+      height: rem(177);
+      @media (max-width: em(1024)) {
+         display: none;
+      }
+   }
+
+   &__text {
+      @include adaptiveValue("font-size", 24, 18);
+      font-weight: 700;
+      padding: rem(15);
+      text-transform: lowercase;
+   }
+}

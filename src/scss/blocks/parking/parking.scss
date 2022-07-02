@@ -1,0 +1,183 @@
+.parking {
+   @include adaptiveValue("padding-top", 40, 30);
+   @include adaptiveValue("padding-bottom", 70, 30);
+   &__container {
+   }
+
+   &__title {
+      margin-bottom: rem(20);
+   }
+
+   &__filter {
+      display: flex;
+      column-gap: rem(30);
+      row-gap: rem(10);
+      align-items: center;
+      @include adaptiveValue("margin-bottom", 90, 20);
+      @media (max-width: em(768)) {
+         flex-direction: column;
+         align-items: start;
+      }
+   }
+
+   &__location {
+   }
+
+   &__subtitle {
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      span {
+         color: $colorBlue;
+      }
+   }
+
+   &__image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      img {
+         @include adaptiveValue("width", 815, 300);
+         @include adaptiveValue("height", 506, 182);
+      }
+      a {
+         cursor: pointer;
+         position: absolute;
+         @include adaptiveValue("top", 5, 1);
+         @include adaptiveValue("right", 555, 139);
+         @include adaptiveValue("width", 42, 15);
+         @include adaptiveValue("height", 92, 33);
+         background: rgba(223, 117, 79, 0.5);
+         border: rem(1) solid $colorOrange;
+      }
+   }
+
+   &__info {
+      position: absolute;
+      @include adaptiveValue("top", -58, 20, 1170, 768, 1);
+      @include adaptiveValue("right", 458, 250, 1170, 768, 1);
+      width: rem(123);
+      height: rem(123);
+      background-color: $mainColor;
+      color: #fff;
+      padding: rem(10);
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      @media (max-width: em(768)) {
+         display: none;
+      }
+   }
+}
+.parking-info {
+   &__title {
+      font-weight: 700;
+      margin-bottom: rem(8);
+   }
+   span {
+      display: block;
+   }
+}
+//на мобилке
+.parking-mobile {
+   display: none;
+   position: fixed;
+   z-index: 10;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.7);
+   overflow: auto;
+   &:target {
+      display: grid;
+      grid-template-columns: auto;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &__body {
+      background-color: #fff;
+      @include adaptiveValue("padding", 20, 10);
+      @include adaptiveValue("width", 410, 320);
+   }
+
+   &__name {
+      @include adaptiveValue("font-size", 24, 18);
+      line-height: math.div(33, 24);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      text-transform: lowercase;
+      margin-bottom: rem(20);
+      &::before {
+         color: $colorOrange;
+         font-weight: 400;
+      }
+   }
+
+   &__items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: rem(10);
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      margin-bottom: rem(10);
+   }
+   &__item-big {
+      padding: rem(15);
+      grid-column-start: 1;
+      grid-column-end: 3;
+      display: flex;
+      justify-content: space-between;
+      column-gap: rem(15);
+   }
+
+   &__item {
+      padding: rem(15);
+   }
+
+   &__column {
+   }
+
+   &__title {
+      color: $colorDarkGrey;
+      margin-bottom: rem(10);
+   }
+
+   &__subtitle {
+      display: flex;
+      align-items: center;
+      column-gap: rem(10);
+
+      &::before {
+         color: $colorBlue;
+         font-size: rem(16);
+      }
+      &:not(:last-child) {
+         margin-bottom: rem(10);
+      }
+   }
+
+   &__price {
+      padding: rem(15);
+   }
+
+   &__value {
+      @include adaptiveValue("font-size", 32, 24);
+      font-weight: 700;
+      margin-bottom: rem(5);
+   }
+
+   &__credit {
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      color: $colorOrange;
+      margin-bottom: rem(10);
+   }
+
+   &__button {
+      width: 100%;
+      height: rem(40);
+   }
+}
