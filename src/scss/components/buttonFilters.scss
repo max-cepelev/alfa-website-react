@@ -1,0 +1,11 @@
+.button-filters {
+   height: rem(30);
+   width: rem(145);
+   @include adaptiveValue("font-size", 14, 12);
+   font-weight: 400;
+   column-gap: rem(5);
+   margin-bottom: rem(20);
+   &::before {
+      font-size: rem(18);
+   }
+}

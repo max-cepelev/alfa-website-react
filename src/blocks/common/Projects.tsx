@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import ButtonMore from '../../components/ButtonMore'
-import LocationFilter from '../../components/LocationFilter'
-import MultiRangeSlider from '../../components/MultiRangeInput'
-import PriceFilter from '../../components/PriceFilter'
+import ButtonWatch from '../../components/ButtonWatch'
+import ButtonFilters from '../../components/ButtonFilters'
 import RoomsFilter from '../../components/RoomsFilter'
 import TimeFilter from '../../components/TimeFilter'
 import getJsonData from '../../helpers/getJsonData'
 import { IProperty } from '../../interfaces/Property'
 import Select from 'react-select'
+import RangeFilter from '../../components/RangeFilter'
+
+interface IFilterState {
+  areaIds: number[] | null
+  rooms: number[] | null
+  minFloor: number | null
+  maxFloor: number | null
+  minPrice: number | null
+  maxPrice: number | null
+  minArea: number | null
+  maxArea: number | null
+}
 
 const options = [
   {
@@ -45,11 +56,20 @@ const options = [
 ]
 
 export default function Projects() {
+  const [filter, setFilter] = useState<IFilterState>({
+    areaIds: null,
+    rooms: [1, 2],
+    minFloor: 1,
+    maxFloor: 15,
+    minPrice: 5000000,
+    maxPrice: 10000000,
+    minArea: null,
+    maxArea: null,
+  })
   const [areas, setAreas] = useState<
     readonly { value: number; label: string }[]
   >([])
 
-  console.log(areas)
   const [data, setData] = useState<IProperty[] | null>(null)
 
   useEffect(() => {
@@ -63,16 +83,53 @@ export default function Projects() {
       <div className="projects__container">
         <div className="projects__body">
           <div className="projects__title title">наши проекты</div>
-          <PriceFilter />
+          <RoomsFilter />
+          <RangeFilter
+            name="Площадь"
+            minValue={20}
+            maxValue={200}
+            valueFrom={filter.minArea}
+            valueTo={filter.maxArea}
+            onChange={(valueFrom, valueTo) =>
+              setFilter({ ...filter, minArea: valueFrom, maxArea: valueTo })
+            }
+            className="filter-area"
+            unit="м2"
+          />
+          <RangeFilter
+            name="Этаж"
+            minValue={1}
+            maxValue={15}
+            valueFrom={filter.minFloor}
+            valueTo={filter.maxFloor}
+            onChange={(valueFrom, valueTo) =>
+              setFilter({ ...filter, minFloor: valueFrom, maxFloor: valueTo })
+            }
+            className="filter-floor"
+          />
+          <RangeFilter
+            name="Цена"
+            minValue={5000000}
+            maxValue={10000000}
+            valueFrom={filter.minPrice}
+            valueTo={filter.maxPrice}
+            onChange={(valueFrom, valueTo) =>
+              setFilter({ ...filter, minPrice: valueFrom, maxPrice: valueTo })
+            }
+            unit="₽"
+            className="filter-price"
+          />
+          <ButtonWatch title="Смотреть 530 квартир" />
           <Select
             value={areas}
             options={options}
+            className="location-select-container filter"
+            classNamePrefix="location-select"
+            placeholder="выбрать район"
             isMulti
             onChange={(e) => setAreas(e)}
-            placeholder="Выбрать район..."
-            className="areaSelector"
-            classNamePrefix="areaSelector"
           />
+          <ButtonFilters />
           <div className="projects__actions projects-actions">
             <ul className="projects-actions__list">
               <li className="projects-actions__item">

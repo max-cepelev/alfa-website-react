@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ButtonMore from '../../components/ButtonMore'
 
 export default function News() {
@@ -14,12 +15,12 @@ export default function News() {
               </div>
               <div className="page-news__data">21.04.2022</div>
             </a>
-            <a href="Article.html" className="page-news__item item orange">
+            <Link to="/article" className="page-news__item item orange">
               <div className="page-news__text">
                 Субсидированная ипотека на квартиры в доме "Скворцы"
               </div>
               <div className="page-news__data">22.02.2022</div>
-            </a>
+            </Link>
             <a href="#" className="page-news__item item grey">
               <div className="page-news__text">
                 Акция декабря на таунхаусы в Дзержинском районе

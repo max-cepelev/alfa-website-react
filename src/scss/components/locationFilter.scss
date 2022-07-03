@@ -1,0 +1,102 @@
+.location-select-container {
+   width: rem(270);
+   height: rem(40);
+   @include adaptiveValue("font-size", 14, 12);
+   line-height: math.div(19, 14) !important;
+   margin-bottom: rem(20);
+}
+
+.location-select {
+   &__control {
+      @include adaptiveValue("padding-left", 20, 10);
+      @include adaptiveValue("padding-right", 20, 10);
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      column-gap: rem(10);
+      @media (any-hover: hover) {
+         &:hover {
+            transition: background 0.3s ease 0s;
+            background: #f6f8fc;
+         }
+      }
+      &--menu-is-open {
+         svg {
+            transform: rotate(-180deg);
+         }
+      }
+      &::before {
+         content: "Район";
+      }
+   }
+
+   &__value-container {
+      cursor: pointer;
+      padding: 0px !important;
+   }
+
+   &__indicator {
+      padding: 0px !important;
+   }
+
+   &__placeholder {
+      text-align: right;
+      color: $colorDarkGrey !important;
+      margin: 0px !important;
+   }
+
+   &__menu {
+      width: rem(270) !important;
+      left: rem(-1) !important;
+      margin: 0px !important;
+      border-top: none !important;
+      border-bottom: rem(0.5) solid $colorDarkGrey !important;
+      border-right: rem(0.5) solid $colorDarkGrey !important;
+      border-left: rem(0.5) solid $colorDarkGrey !important;
+      box-shadow: rem(3) rem(3) rem(0) rgba(0, 0, 0, 0.07) !important;
+      border-radius: 0 !important;
+   }
+
+   &__menu-list {
+      max-height: rem(140) !important;
+      overflow: auto;
+      margin-right: rem(10);
+      @include adaptiveValue("margin-left", 20, 10);
+      @include adaptiveValue("margin-bottom", 20, 10);
+      &::-webkit-scrollbar {
+         width: rem(5);
+         height: rem(5);
+      }
+      &::-webkit-scrollbar-track {
+         border-radius: rem(3);
+         background-color: #f6f8fc;
+      }
+      &::-webkit-scrollbar-thumb {
+         background-color: $colorDarkGrey;
+         border-radius: rem(10);
+      }
+   }
+
+   &__input-container {
+      padding: 0px !important;
+      margin: 0px !important;
+   }
+
+   &__option {
+      padding: 0px !important;
+      cursor: pointer !important;
+      &:not(:last-child) {
+         margin-bottom: rem(10);
+      }
+   }
+
+   &__indicator-separator {
+      display: none;
+   }
+}
+
+.css-tj5bde-Svg {
+   cursor: pointer;
+   transition: transform 0.3s ease 0s;
+   color: $colorBlue;
+}

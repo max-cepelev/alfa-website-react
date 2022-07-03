@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Options() {
   return (
@@ -17,12 +18,12 @@ export default function Options() {
               финансирования ипотеки
             </div>
             <div className="options-content__buttons">
-              <a
-                href="Options.html"
+              <Link
+                to="/options"
                 className="options-content__button btn-orange"
               >
                 Подробнее
-              </a>
+              </Link>
               <a href="#" className="options-content__button btn">
                 Калькулятор
               </a>

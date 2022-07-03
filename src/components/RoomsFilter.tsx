@@ -1,43 +1,44 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 const filters = [
   {
-    id: "r_1",
-    name: "Ст",
+    id: 'r_1',
+    name: 'Ст',
     value: 1,
   },
   {
-    id: "r_2",
-    name: "1к",
+    id: 'r_2',
+    name: '1к',
     value: 2,
   },
   {
-    id: "r_3",
-    name: "2к",
+    id: 'r_3',
+    name: '2к',
     value: 3,
   },
   {
-    id: "r_4",
-    name: "3к",
+    id: 'r_4',
+    name: '3к',
     value: 4,
   },
   {
-    id: "r_5",
-    name: "4к+",
+    id: 'r_5',
+    name: '4к+',
     value: 5,
   },
-];
+]
 
 export default function RoomsFilter() {
-  const [filter, setFilter] = useState<number | null>(null);
-  console.log(filter);
+  const [filter, setFilter] = useState<number[]>([])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value },
-    } = e;
-    setFilter(+value);
-  };
+    } = e
+    filter.includes(+value)
+      ? setFilter(filter.filter((item) => item == +value))
+      : setFilter([...filter, +value])
+  }
 
   return (
     <div className="filter-rooms filter">
@@ -46,9 +47,9 @@ export default function RoomsFilter() {
           <input
             id={item.id}
             className="filter-room__input"
-            type="radio"
+            type="checkbox"
             name={item.id}
-            checked={filter == item.value ? true : false}
+            // checked={filter == item.value ? true : false}
             onChange={handleChange}
             value={item.value}
           />
@@ -58,5 +59,5 @@ export default function RoomsFilter() {
         </div>
       ))}
     </div>
-  );
+  )
 }
