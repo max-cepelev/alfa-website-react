@@ -11,7 +11,7 @@ export default function Article() {
           </div>
           <img
             className="page-article__image"
-            src="@img/article/Rectangle 413.png"
+            src="/img/article/Rectangle 413.png"
             alt=""
           />
           <div className="page-article__content">

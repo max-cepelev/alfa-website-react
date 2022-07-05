@@ -1,0 +1,67 @@
+.calc {
+  @include adaptiveValue('padding-bottom', 70, 30);
+  &__container {
+  }
+
+  &__title {
+    @include adaptiveValue('margin-bottom', 40, 30);
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: rem(30);
+  }
+
+  &__filetrs {
+  }
+
+  &__banks {
+    display: grid;
+    grid-template-columns: repeat(4, rem(185));
+    gap: rem(9);
+  }
+}
+
+.calc-banks {
+  &__bank {
+    padding: rem(15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: rem(120);
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $colorGrey;
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    font-weight: 700;
+    column-gap: rem(5);
+    align-items: center;
+    font-size: rem(14);
+    line-height: math.div(19, 14);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(8);
+    @include adaptiveValue('font-size', 14, 12);
+    line-height: math.div(19, 14);
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    span {
+      &:nth-child(1) {
+        color: #7b7b7b;
+      }
+    }
+  }
+}

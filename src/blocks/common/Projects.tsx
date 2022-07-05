@@ -6,8 +6,8 @@ import RoomsFilter from '../../components/RoomsFilter'
 import TimeFilter from '../../components/TimeFilter'
 import getJsonData from '../../helpers/getJsonData'
 import { IProperty } from '../../interfaces/Property'
-import Select from 'react-select'
 import RangeFilter from '../../components/RangeFilter'
+import LocationFilter from '../../components/LocationFilter'
 
 interface IFilterState {
   areaIds: number[] | null
@@ -22,36 +22,93 @@ interface IFilterState {
 
 const options = [
   {
-    value: 6,
-    label: 'Дзержинский',
+    id: 6,
+    name: 'Дзержинский',
   },
   {
-    value: 3,
-    label: 'Индустриальный',
+    id: 3,
+    name: 'Индустриальный',
   },
   {
-    value: 5,
-    label: 'Кировский',
+    id: 5,
+    name: 'Кировский',
   },
   {
-    value: 2,
-    label: 'Ленинский',
+    id: 2,
+    name: 'Ленинский',
   },
   {
-    value: 1,
-    label: 'Мотовилихинский',
+    id: 1,
+    name: 'Мотовилихинский',
   },
   {
-    value: 7,
-    label: 'Орджоникидзевский',
+    id: 7,
+    name: 'Орджоникидзевский',
   },
   {
-    value: 8,
-    label: 'Пермский',
+    id: 8,
+    name: 'Пермский',
   },
   {
-    value: 4,
-    label: 'Свердловский',
+    id: 4,
+    name: 'Свердловский',
+  },
+]
+
+const data = [
+  {
+    id: 1,
+    name: 'Таун-хаус',
+    price: 5.8,
+    address: 'ул. Путейская, 12',
+    img: '/img/projects/01.png',
+    commissioningDate: 'Сдан',
+    flatsNumber: 5,
+  },
+  {
+    id: 2,
+    name: 'Дом Скворцы',
+    price: 3.6,
+    address: 'ул. Клары Цеткин, 35',
+    img: '/img/projects/02.png',
+    commissioningDate: 'II кв. 2023 г.',
+    flatsNumber: 132,
+  },
+  {
+    id: 3,
+    name: 'Дом Hygge',
+    price: 8.4,
+    address: 'ул. Советской Армии, 64',
+    img: '/img/projects/03.png',
+    commissioningDate: 'IV кв. 2022 г.',
+    flatsNumber: 1,
+  },
+  {
+    id: 4,
+    name: 'Дом Гавань',
+    price: 5.2,
+    address: 'ул. Подводников, 112',
+    img: '/img/projects/04.png',
+    commissioningDate: 'IV кв. 2022 г.',
+    flatsNumber: 2,
+  },
+  {
+    id: 5,
+    name: 'Дом Танго',
+    price: 4.7,
+    address: 'ул. Т. Барамзиной, 38',
+    img: '/img/projects/05.png',
+    commissioningDate: 'IV кв. 2022 г.',
+    flatsNumber: 13,
+  },
+  {
+    id: 6,
+    name: 'Дом Олимп',
+    price: 3.6,
+    address: 'ул. Локомотивная, 1а',
+    img: '/img/projects/06.png',
+    commissioningDate: 'Сдан',
+    flatsNumber: 12,
   },
 ]
 
@@ -66,17 +123,15 @@ export default function Projects() {
     minArea: null,
     maxArea: null,
   })
-  const [areas, setAreas] = useState<
-    readonly { value: number; label: string }[]
-  >([])
+  const [areas, setAreas] = useState<typeof options>([])
 
-  const [data, setData] = useState<IProperty[] | null>(null)
+  // const [data, setData] = useState<IProperty[] | null>(null)
 
-  useEffect(() => {
-    getJsonData('/properties.json').then((res: IProperty[]) => {
-      setData(res)
-    })
-  }, [])
+  // useEffect(() => {
+  //   getJsonData('/properties.json').then((res: IProperty[]) => {
+  //     setData(res)
+  //   })
+  // }, [])
 
   return (
     <section className="projects">
@@ -120,14 +175,10 @@ export default function Projects() {
             className="filter-price"
           />
           <ButtonWatch title="Смотреть 530 квартир" />
-          <Select
-            value={areas}
+          <LocationFilter
             options={options}
-            className="location-select-container filter"
-            classNamePrefix="location-select"
-            placeholder="выбрать район"
-            isMulti
-            onChange={(e) => setAreas(e)}
+            selectedValues={areas}
+            onChange={(arr) => setAreas(arr)}
           />
           <ButtonFilters />
           <div className="projects__actions projects-actions">
@@ -163,29 +214,28 @@ export default function Projects() {
             </div>
           </div>
           <div className="projects__items projects-items">
-            {data &&
-              data.map((item) => (
-                <a key={item.id} href="#" className="projects-items__item">
-                  <div className="projects-items__image">
-                    <img src={item.img} alt={item.name} />
+            {data.map((item) => (
+              <a key={item.id} href="#" className="projects-items__item">
+                <div className="projects-items__image">
+                  <img src={item.img} alt={item.name} />
+                </div>
+                <div className="projects-items__info">
+                  <div className="projects-items__name">{item.name}</div>
+                  <div className="projects-items__price">
+                    от {item.price.toLocaleString('ru-RU')} млн/₽
                   </div>
-                  <div className="projects-items__info">
-                    <div className="projects-items__name">{item.name}</div>
-                    <div className="projects-items__price">
-                      от {item.price.toLocaleString('ru-RU')} млн/₽
-                    </div>
-                    <div className="projects-items__location _icon-map">
-                      {item.address}
-                    </div>
-                    <div className="projects-items__deadline">
-                      {item.commissioningDate}
-                    </div>
+                  <div className="projects-items__location _icon-map">
+                    {item.address}
                   </div>
-                  <button type="submit" className="projects-items__button">
-                    квартир {item.flatsNumber}
-                  </button>
-                </a>
-              ))}
+                  <div className="projects-items__deadline">
+                    {item.commissioningDate}
+                  </div>
+                </div>
+                <button type="submit" className="projects-items__button">
+                  квартир {item.flatsNumber}
+                </button>
+              </a>
+            ))}
           </div>
           <ButtonMore title="Посмотреть еще проекты" />
         </div>

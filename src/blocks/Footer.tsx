@@ -22,14 +22,14 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className="menu-footer__item">
-                  <a href="#" className="menu-footer__link">
+                  <Link to="/catalog" className="menu-footer__link">
                     Каталог
-                  </a>
+                  </Link>
                 </li>
                 <li className="menu-footer__item">
-                  <a href="#" className="menu-footer__link">
+                  <Link to="/standarts" className="menu-footer__link">
                     Стандарты
-                  </a>
+                  </Link>
                 </li>
                 <li className="menu-footer__item">
                   <a href="#" className="menu-footer__link">
@@ -37,9 +37,9 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className="menu-footer__item">
-                  <a href="#" className="menu-footer__link">
+                  <Link to="/client" className="menu-footer__link">
                     Покупателям
-                  </a>
+                  </Link>
                 </li>
                 <li className="menu-footer__item">
                   <Link to="/news" className="menu-footer__link">

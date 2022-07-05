@@ -1,20 +1,14 @@
-@use "sass:math";
+@use 'sass:math';
 
 // Подключение миксинов ===========================================================================================================================================================================================================================================================================
-@import "base/mixins";
-
-// Подключение шрифтов ===========================================================================================================================================================================================================================================================================
-//&display=swap - добавить при подключении через плагин
-
-// Подключить если есть локальные файлы шрифтов
-@import "fonts/fonts";
+@import 'base/mixins';
 
 // Подключение иконочных шрифтов ==============================================================================================================================================================================================================================================================================
 // Подключить если есть файл иконочного шрифта
-@import "fonts/icons";
+@import 'fonts/icons';
 
 // Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
-$fontFamily: "Aeroport";
+$fontFamily: 'Aeroport';
 $fontSize: rem(16); //  размер шрифта по умолчанию из макета
 
 // Основные цвета
@@ -44,30 +38,30 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 $responsiveType: 1;
 
 // Обнуление и общие параметры ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
-@import "base/null";
+@import 'base/null';
 
 body {
-   // Скролл заблокирован
-   .lock & {
-      overflow: hidden;
-      touch-action: none;
-   }
+  // Скролл заблокирован
+  .lock & {
+    overflow: hidden;
+    touch-action: none;
+  }
 }
 // Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
 .wrapper {
-   min-height: 100%;
-   display: flex;
-   flex-direction: column;
-   overflow: hidden;
-   letter-spacing: 0.025em;
-   // Прижимаем footer
-   > main {
-      flex: 1 1 auto;
-   }
-   // Фикс для слайдеров
-   > * {
-      min-width: 0;
-   }
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  letter-spacing: 0.025em;
+  // Прижимаем footer
+  > main {
+    flex: 1 1 auto;
+  }
+  // Фикс для слайдеров
+  > * {
+    min-width: 0;
+  }
 }
 // Ограничивающий контейнер======================================================================================================================================================================================================================
 
@@ -78,103 +72,105 @@ body {
 Снипет (HTML): cnt
 */
 @if ($responsiveType==1) {
-   // Отзывчивая
-   [class*="__container"] {
-      @if ($maxWidthContainer>0) {
-         max-width: rem($maxWidthContainer);
-         box-sizing: content-box;
-         margin: 0 auto;
-      }
-      @if ($containerPadding>0) {
-         padding: 0 rem(math.div($containerPadding, 2));
-      }
-   }
+  // Отзывчивая
+  [class*='__container'] {
+    @if ($maxWidthContainer>0) {
+      max-width: rem($maxWidthContainer);
+      box-sizing: content-box;
+      margin: 0 auto;
+    }
+    @if ($containerPadding>0) {
+      padding: 0 rem(math.div($containerPadding, 2));
+    }
+  }
 }
 
 //Подключение стилей==========================================================================================================================================
-@import "./base/common.scss";
-@import "blocks/header.scss";
-@import "blocks/footer.scss";
+@import 'base/common.scss';
+@import 'blocks/header.scss';
+@import 'blocks/footer.scss';
 
 //Подключение повторяющий блоков=========================================================================================================================================
-@import "blocks/options.scss";
-@import "blocks/projects.scss";
-@import "blocks/standarts.scss";
-@import "blocks/table.scss";
+@import 'blocks/options.scss';
+@import 'blocks/projects.scss';
+@import 'blocks/standarts.scss';
+@import 'blocks/table.scss';
 
 //Подключение повторяющий элементов==========================================================================================================================
-@import "./components/button-more.scss";
-@import "./components/creditCalc.scss";
-@import "./components/priceFilter.scss";
-@import "./components/range.scss";
-@import "./components/roomsFilter.scss";
-@import "./components/areaFilter.scss";
-@import "./components/floorFilter.scss";
-@import "./components/buttonWatch.scss";
-@import "./components/buttonFilters.scss";
-@import "./components/locationFilter";
+@import 'components/button-more.scss';
+@import 'components/creditCalc.scss';
+@import 'components/calc.scss';
+@import 'components/priceFilter.scss';
+@import 'components/range.scss';
+@import 'components/roomsFilter.scss';
+@import 'components/areaFilter.scss';
+@import 'components/floorFilter.scss';
+@import 'components/buttonWatch.scss';
+@import 'components/buttonFilters.scss';
+@import 'components/locationFilter';
+@import 'components/locationFilter2';
 
 //Подключение блоков страниц==========================================================================================================================
 //Главная===============================================================================================================================================
-@import "blocks/main/about.scss";
-@import "blocks/main/progress.scss";
-@import "blocks/main/news.scss";
+@import 'blocks/main/about.scss';
+@import 'blocks/main/progress.scss';
+@import 'blocks/main/news.scss';
 
 //Дом скворцы===============================================================================================================================================
-@import "blocks/NewHome/about.scss";
-@import "blocks/NewHome/features.scss";
-@import "blocks/NewHome/info.scss";
-@import "blocks/NewHome/infrastructure.scss";
-@import "blocks/NewHome/layout.scss";
-@import "blocks/NewHome/stage.scss";
+@import 'blocks/NewHome/about.scss';
+@import 'blocks/NewHome/features.scss';
+@import 'blocks/NewHome/info.scss';
+@import 'blocks/NewHome/infrastructure.scss';
+@import 'blocks/NewHome/layout.scss';
+@import 'blocks/NewHome/stage.scss';
 //Каталог=================================================================================================================================================
-@import "blocks/catalog/catalog.scss";
+@import 'blocks/catalog/catalog.scss';
 //Карточка квартиры============================================================================================================================================
-@import "blocks/card-apartaments/apartaments.scss";
-@import "blocks/card-apartaments/apartaments-slider.scss";
+@import 'blocks/card-apartaments/apartaments.scss';
+@import 'blocks/card-apartaments/apartaments-slider.scss';
 //Новости=================================================================================================================================================
-@import "blocks/News/news.scss";
-@import "blocks/article/article.scss";
+@import 'blocks/News/news.scss';
+@import 'blocks/article/article.scss';
 //Технологии строительства======================================================================================================================================
-@import "blocks/Technology/bathroom.scss";
-@import "blocks/Technology/facades.scss";
-@import "blocks/Technology/flooring.scss";
-@import "blocks/Technology/renovation.scss";
-@import "blocks/Technology/technology-nav.scss";
-@import "blocks/Technology/walls.scss";
-@import "blocks/Technology/window.scss";
+@import 'blocks/Technology/bathroom.scss';
+@import 'blocks/Technology/facades.scss';
+@import 'blocks/Technology/flooring.scss';
+@import 'blocks/Technology/renovation.scss';
+@import 'blocks/Technology/technology-nav.scss';
+@import 'blocks/Technology/walls.scss';
+@import 'blocks/Technology/window.scss';
 //Коммуникации==========================================================================================================================================
-@import "blocks/communications/communications-nav.scss";
-@import "blocks/communications/_water.scss";
-@import "blocks/communications/boiler-room.scss";
-@import "blocks/communications/canalization.scss";
-@import "blocks/communications/heating-uponor.scss";
-@import "blocks/communications/heating.scss";
-@import "blocks/communications/lift.scss";
-@import "blocks/communications/radiators.scss";
-@import "blocks/communications/soundproofing.scss";
+@import 'blocks/communications/communications-nav.scss';
+@import 'blocks/communications/_water.scss';
+@import 'blocks/communications/boiler-room.scss';
+@import 'blocks/communications/canalization.scss';
+@import 'blocks/communications/heating-uponor.scss';
+@import 'blocks/communications/heating.scss';
+@import 'blocks/communications/lift.scss';
+@import 'blocks/communications/radiators.scss';
+@import 'blocks/communications/soundproofing.scss';
 //места общего пользования======================================================================================================================================
-@import "blocks/common-areas/common-areas.scss";
+@import 'blocks/common-areas/common-areas.scss';
 //Придомовая территория===================================================================================================================================
-@import "blocks/house-territory/house-territory.scss";
+@import 'blocks/house-territory/house-territory.scss';
 //Машиноместо==============================================================================================================================================
-@import "blocks/parking/parking.scss";
+@import 'blocks/parking/parking.scss';
 //Кладовая===========================================================================================================================================
-@import "blocks/larder/larder.scss";
+@import 'blocks/larder/larder.scss';
 //Коммерция=============================================================================================================================================
-@import "blocks/card-commerce/card-commerce.scss";
+@import 'blocks/card-commerce/card-commerce.scss';
 //Покупателям==============================================================================================================================================
-@import "blocks/client/client-nav.scss";
-@import "blocks/client/guarantee.scss";
-@import "blocks/client/reception.scss";
+@import 'blocks/client/client-nav.scss';
+@import 'blocks/client/guarantee.scss';
+@import 'blocks/client/reception.scss';
 
 //способы приобретения========================================================================================================================================
-@import "./components/creditCalc.scss";
-@import "blocks/options/options-nav.scss";
-@import "blocks/options/good-buy.scss";
-@import "blocks/options/hypothec.scss";
-@import "blocks/options/installment.scss";
-@import "blocks/options/mat-capital.scss";
-@import "blocks/options/subsidies.scss";
-@import "blocks/options/trade-in.scss";
-@import "blocks/options/useful.scss";
+@import './components/creditCalc.scss';
+@import 'blocks/options/options-nav.scss';
+@import 'blocks/options/good-buy.scss';
+@import 'blocks/options/hypothec.scss';
+@import 'blocks/options/installment.scss';
+@import 'blocks/options/mat-capital.scss';
+@import 'blocks/options/subsidies.scss';
+@import 'blocks/options/trade-in.scss';
+@import 'blocks/options/useful.scss';

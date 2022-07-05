@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Catalog from '../blocks/catalog/Catalog'
 import Footer from '../blocks/Footer'
 import Header from '../blocks/Header'
@@ -12,9 +13,9 @@ export default function CatalogPage() {
           <div className="breadcrumbs__container">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="#" className="breadcrumbs__link">
+                <Link to="/" className="breadcrumbs__link">
                   Главная
-                </a>
+                </Link>
               </li>
               <li className="breadcrumbs__item">
                 <span className="breadcrumbs__current">Каталог</span>

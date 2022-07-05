@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Apartaments from '../blocks/card-apartament/Apartaments'
 import ApartamentsSlider from '../blocks/card-apartament/ApartamentsSlider'
 import Footer from '../blocks/Footer'
@@ -13,19 +14,19 @@ export default function CardApartamentPage() {
           <div className="breadcrumbs__container">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="#" className="breadcrumbs__link">
+                <Link to="/" className="breadcrumbs__link">
                   Главная
-                </a>
+                </Link>
               </li>
               <li className="breadcrumbs__item">
-                <a href="#" className="breadcrumbs__link">
+                <Link to="/catalog" className="breadcrumbs__link">
                   Каталог
-                </a>
+                </Link>
               </li>
               <li className="breadcrumbs__item">
-                <a href="#" className="breadcrumbs__current">
+                <Link to="/" className="breadcrumbs__current">
                   Квартиры
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

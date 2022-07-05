@@ -10,9 +10,9 @@ export default function News() {
             <div className="news__title title">
               Новости <span>компании</span>
             </div>
-            <a href="#" className="news__link">
+            <Link to="/news" className="news__link">
               <span>Посмотреть</span> все новости
-            </a>
+            </Link>
           </div>
           <div className="news__items">
             <a href="#" className="news__item item blue">

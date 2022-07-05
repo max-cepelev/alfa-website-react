@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Footer from '../blocks/Footer'
 import Header from '../blocks/Header'
 import Bathroom from '../blocks/technology/Bathroom'
@@ -18,14 +19,14 @@ export default function TechnologyPage() {
           <div className="breadcrumbs__container">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="#" className="breadcrumbs__link">
+                <Link to="/" className="breadcrumbs__link">
                   Главная
-                </a>
+                </Link>
               </li>
               <li className="breadcrumbs__item">
-                <a href="#" className="breadcrumbs__link">
+                <Link to="/standarts" className="breadcrumbs__link">
                   Стандарты
-                </a>
+                </Link>
               </li>
               <li className="breadcrumbs__item">
                 <span className="breadcrumbs__current">

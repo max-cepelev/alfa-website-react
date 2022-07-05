@@ -1,239 +1,142 @@
 import React, { useEffect, useState } from 'react'
 
 interface Props {
-  price?: number
-  openModal?: () => void
+  initPrice?: number
+  rate?: number
+  initStartFeeRate?: number
+  onConfirm?: () => void
 }
 
-export default function CreditCalc({ price = 6000000, openModal }: Props) {
-  const [values, setValues] = useState({
-    apartmentCost: 0,
-    startFeePercent: 20,
-    startFee: 0,
-    interestRate: 6.5,
-    creditTerm: 15,
-  })
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    openModal && openModal()
-  }
-
+export default function CreditCalc({
+  initPrice = 6000000,
+  rate = 6.5,
+  initStartFeeRate = 0.2,
+}: Props) {
+  const [price, setPrice] = useState(initPrice)
+  const [startFee, setStartFee] = useState(initPrice * initStartFeeRate)
+  const [startFeeRate, setStartFeeRate] = useState(initStartFeeRate)
+  const [creditTerm, setCreditTerm] = useState(15)
   const [total, setTotal] = useState(0)
-
-  const [initialFee, setInitialFee] = useState(true)
 
   const costChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target
     // const newValue = value.replace(/[^0-9]+/g, '')
 
     if (!isNaN(+value)) {
-      setValues((prevValues) => {
-        return {
-          ...prevValues,
-          apartmentCost: +value,
-          startFeePercent: prevValues.startFeePercent,
-          startFee: (+value * prevValues.startFeePercent) / 100,
-        }
-      })
-    }
-  }
-
-  const percentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target
-    if (!isNaN(+value)) {
-      setValues((prevValues) => {
-        return {
-          ...prevValues,
-          apartmentCost: prevValues.apartmentCost,
-          startFeePercent: +value,
-          startFee: (prevValues.apartmentCost * +value) / 100,
-        }
-      })
+      setPrice(+value)
     }
   }
 
   const startFeeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target
     if (!isNaN(+value)) {
-      setValues((prevValues) => {
-        return {
-          ...prevValues,
-          apartmentCost: prevValues.apartmentCost,
-          startFeePercent: +((+value * 100) / values.apartmentCost).toFixed(2),
-          startFee: +value,
-        }
-      })
+      setStartFee(+value)
     }
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target
+  const handleTermChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target
     if (!isNaN(+value)) {
-      setValues((prevValues) => {
-        return {
-          ...prevValues,
-          [name]: +value,
-        }
-      })
+      setCreditTerm(+value)
     }
   }
 
   useEffect(() => {
-    setValues((prevValues) => {
-      return {
-        ...prevValues,
-        apartmentCost: price,
-        startFee: (prevValues.startFeePercent * price) / 100,
-      }
-    })
+    if (startFee > price) {
+      setStartFee(price)
+    }
   }, [price])
 
   useEffect(() => {
-    const { apartmentCost, startFee, interestRate, creditTerm } = values
+    const value = price > 0 ? (startFee / price) * 100 : 0
+    setStartFeeRate(+value)
+  }, [price, startFee])
 
-    const rate = interestRate / 100 / 12
+  useEffect(() => {
+    const interestRate = rate / 100 / 12
 
     const term = creditTerm * 12
 
-    const creditSum = apartmentCost - startFee
+    const creditSum = price - startFee
 
-    let pay = creditSum * (rate + rate / ((1 + rate) ** term - 1))
+    let pay =
+      creditSum *
+      (interestRate + interestRate / ((1 + interestRate) ** term - 1))
 
     if (!isNaN(pay) && isFinite(pay)) {
       let localPay = pay
       setTotal(localPay)
     }
-  }, [values])
+  }, [creditTerm, price, startFee])
 
   return (
-    <form className="calc" onSubmit={(e) => handleSubmit(e)}>
-      <h3 className="calc__title">Ипотечный калькулятор</h3>
-      <div className="calc__price field">
+    <div className="creditCalc">
+      <div className="creditCalc__price field">
         <label htmlFor="apartmentCost">Стоимость квартиры, руб</label>
         <input
-          className="calc__textinput"
+          className="creditCalc__textinput"
           type="text"
           name="apartmentCost"
-          value={values.apartmentCost}
+          value={price}
+          onChange={costChange}
+        />
+        <input
+          className="creditCalc__slider creditCalc__initialFee-slider"
+          type="range"
+          min={0}
+          max={initPrice}
+          value={price}
+          step={5000}
           onChange={costChange}
         />
       </div>
-      <div className="calc__initialFee field">
-        {initialFee ? (
-          <>
-            <label htmlFor="startFeePercent">Первоначальный взнос, %</label>
-            <div className="calc__initialFee-input">
-              <input
-                className="calc__textinput"
-                type="text"
-                name="startFeePercent"
-                value={values.startFeePercent}
-                onChange={percentChange}
-              />
-              <div className="calc__buttons">
-                <div
-                  className={`calc__buttons-item ${initialFee && 'active'}`}
-                  onClick={() => setInitialFee(true)}
-                >
-                  %
-                </div>
-                <div
-                  className={`calc__buttons-item ${initialFee || 'active'}`}
-                  onClick={() => setInitialFee(false)}
-                >
-                  ₽
-                </div>
-              </div>
-            </div>
-            <input
-              className="calc__slider calc__initialFee-slider"
-              type="range"
-              min="0"
-              max="100"
-              value={values.startFeePercent}
-              onChange={percentChange}
-            />
-          </>
-        ) : (
-          <>
-            <label htmlFor="startFee">Первоначальный взнос, руб</label>
-            <div className="calc__initialFee-input">
-              <input
-                className="calc__textinput"
-                type="text"
-                name="startFee"
-                value={values.startFee}
-                onChange={startFeeChange}
-              />
-              <div className="calc__buttons">
-                <div
-                  className={`calc__buttons-item ${initialFee && 'active'}`}
-                  onClick={() => setInitialFee(true)}
-                >
-                  %
-                </div>
-                <div
-                  className={`calc__buttons-item ${initialFee || 'active'}`}
-                  onClick={() => setInitialFee(false)}
-                >
-                  ₽
-                </div>
-              </div>
-            </div>
-            <input
-              className="calc__slider calc__initialFee-slider"
-              type="range"
-              min="0"
-              max={values.apartmentCost}
-              value={values.startFee}
-              step="5000"
-              onChange={startFeeChange}
-            />
-          </>
-        )}
-      </div>
-      <button className="calc__send">отправить заявку</button>
-      <div className="calc__rate field">
-        <label htmlFor="interestRate">Cтавка, %</label>
+      <div className="creditCalc__initialFee field">
+        <label htmlFor="startFee">Первоначальный взнос, руб</label>
+        <div className="creditCalc__initialFee-input">
+          <input
+            className="creditCalc__textinput"
+            type="text"
+            name="startFee"
+            value={startFee}
+            onChange={startFeeChange}
+          />
+          <span>
+            {startFeeRate.toLocaleString('ru-RU', {
+              maximumFractionDigits: 1,
+            })}
+            %
+          </span>
+        </div>
         <input
-          className="calc__textinput"
-          type="text"
-          name="interestRate"
-          value={values.interestRate}
-          onChange={handleChange}
-        />
-        <input
-          name="interestRate"
+          className="creditCalc__slider creditCalc__initialFee-slider"
           type="range"
-          min="0"
-          max="50"
-          value={values.interestRate}
-          step="0.1"
-          onChange={handleChange}
-          className="calc__slider"
+          min={0}
+          max={price}
+          value={startFee}
+          step={5000}
+          onChange={startFeeChange}
         />
       </div>
-      <div className="calc__term field">
+      <div className="creditCalc__term field">
         <label htmlFor="creditTerm">Срок кредита, лет</label>
         <input
-          className="calc__textinput"
+          className="creditCalc__textinput"
           type="text"
           name="creditTerm"
-          value={values.creditTerm}
-          onChange={handleChange}
+          value={creditTerm}
+          onChange={handleTermChange}
         />
         <input
           name="creditTerm"
           type="range"
           min="0"
           max="50"
-          value={values.creditTerm}
-          onChange={handleChange}
-          className="calc__slider"
+          value={creditTerm}
+          onChange={handleTermChange}
+          className="creditCalc__slider"
         />
       </div>
-      <div className="calc__total">
+      <div className="creditCalc__total">
         <p>Ежемесячный платёж</p>
         <div>
           <p className="text">
@@ -244,6 +147,15 @@ export default function CreditCalc({ price = 6000000, openModal }: Props) {
           </p>
         </div>
       </div>
-    </form>
+      <div className="creditCalc__rate">
+        <p>Ставка по кредиту</p>
+        <div>
+          <p className="text">{rate.toLocaleString('ru-RU')}%</p>
+        </div>
+      </div>
+      <button className="creditCalc__button btn-orange">
+        Подобрать квартиру под мои условия
+      </button>
+    </div>
   )
 }

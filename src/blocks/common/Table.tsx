@@ -20,7 +20,7 @@ export default function Table() {
           <div className="table__body table-body">
             <ul className="table-body__row">
               <li className="table-body__item">
-                <img src="@img/catalog-apartaments/image 3.png" alt="" />
+                <img src="/img/catalog-apartaments/image 3.png" alt="" />
               </li>
               <li className="table-body__item">
                 <div>1</div>
@@ -43,7 +43,7 @@ export default function Table() {
             </ul>
             <ul className="table-body__row">
               <li className="table-body__item">
-                <img src="@img/catalog-apartaments/image 3.png" alt="" />
+                <img src="/img/catalog-apartaments/image 3.png" alt="" />
               </li>
               <li className="table-body__item">
                 <div>1</div>
@@ -66,7 +66,7 @@ export default function Table() {
             </ul>
             <ul className="table-body__row">
               <li className="table-body__item">
-                <img src="@img/catalog-apartaments/image 3.png" alt="" />
+                <img src="/img/catalog-apartaments/image 3.png" alt="" />
               </li>
               <li className="table-body__item">
                 <div>1</div>
@@ -89,7 +89,7 @@ export default function Table() {
             </ul>
             <ul className="table-body__row">
               <li className="table-body__item">
-                <img src="@img/catalog-apartaments/image 3.png" alt="" />
+                <img src="/img/catalog-apartaments/image 3.png" alt="" />
               </li>
               <li className="table-body__item">
                 <div>1</div>
@@ -112,7 +112,7 @@ export default function Table() {
             </ul>
             <ul className="table-body__row">
               <li className="table-body__item">
-                <img src="@img/catalog-apartaments/image 3.png" alt="" />
+                <img src="/img/catalog-apartaments/image 3.png" alt="" />
               </li>
               <li className="table-body__item">
                 <div>1</div>

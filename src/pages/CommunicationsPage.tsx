@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import BoilerRoom from '../blocks/communications/BoilerRoom'
 import Canalization from '../blocks/communications/Canalization'
 import CommunicationsNav from '../blocks/communications/CommunicationsNav'
@@ -19,14 +20,14 @@ export default function CommunicationsPage() {
           <div className="breadcrumbs__container">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="#" className="breadcrumbs__link">
+                <Link to="/" className="breadcrumbs__link">
                   Главная
-                </a>
+                </Link>
               </li>
               <li className="breadcrumbs__item">
-                <a href="#" className="breadcrumbs__link">
+                <Link to="/standarts" className="breadcrumbs__link">
                   Стандарты
-                </a>
+                </Link>
               </li>
               <li className="breadcrumbs__item">
                 <span className="breadcrumbs__current">

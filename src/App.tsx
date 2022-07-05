@@ -1,7 +1,5 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './scss/style.scss'
 import Pages from './pages'
+import './scss/style.scss'
 
 function App() {
   return <Pages />
