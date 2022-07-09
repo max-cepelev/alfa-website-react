@@ -1,0 +1,40 @@
+.reserve {
+   cursor: pointer;
+   @include adaptiveValue("font-size", 14, 12);
+   line-height: math.div(19, 14);
+   display: flex;
+   align-items: center;
+   &__input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+
+      &:checked + .reserve__label::before {
+         background: $colorBlue;
+         color: #fff;
+         content: "\e901";
+         font-size: rem(9);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+   }
+
+   &__label {
+      display: flex;
+      align-items: center;
+      column-gap: rem(10);
+      cursor: pointer;
+      &::before {
+         content: "";
+         border: rem(0.5) solid $colorDarkGrey;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: rem(16);
+         height: rem(16);
+         border-radius: 50%;
+      }
+   }
+}

@@ -1,158 +1,95 @@
 .creditCalc {
-  display: grid;
-  max-width: 350px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-areas:
-    'price    price'
-    'startFee startFee'
-    'term     term'
-    'total    rate'
-    'button   button';
-  //   color: #ffffff;
-  margin: 0 auto;
-  gap: 10px;
-  &__textinput {
-    box-shadow: 0 8px 6px -6px #555;
-    height: 20px;
-    width: 100%;
-    transition: all 0.5s ease;
-    padding: 10px 8px;
-    outline: none;
-    border: none;
-    font-size: clamp(12px, 2vw, 15px);
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f6f8fc;
-    &:focus {
-      outline: none;
-      box-shadow: none;
-      background: rgb(255, 255, 255);
-    }
-  }
-  &__slider {
-    width: 100%;
-    padding: 0;
-    margin-top: 10px;
-    // -webkit-appearance: none;
-    // appearance: none;
-    height: 8px;
-    border-radius: 5px;
-    &::-webkit-slider-thumb {
-      // -webkit-appearance: none;
-      // appearance: none;
-      width: 40px;
-      height: 40px;
-      border: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 15 24" preserveAspectRatio="xMidYMid meet" xmlns:v="https://vecta.io/nano"><path d="M4.549.553L1.185.829.454.913l.03.494.474 11.36.464 10.886c.01.01.356.005.761-.015l.746-.035v-.217c0-.282-.217-6.95-.351-10.708-.074-2.168-.084-2.919-.044-2.944.138-.089 1.887-.286 3.038-.346 2.015-.109 4.184.123 7.646.81.766.148 1.067.193 1.052.148a228.95 228.95 0 0 0-1.492-2.519c-1.2-2.02-1.452-2.47-1.393-2.509a209.2 209.2 0 0 0 3.388-2.973c-.044-.04-2.672-.855-3.418-1.057C9.632.819 8.505.627 6.999.548 5.981.493 5.907.493 4.549.553z" fill="#0085ca"/></svg>');
-      cursor: pointer;
-    }
-  }
-  &__price {
-    grid-area: price;
-    width: 100%;
-  }
-  &__initialFee {
-    grid-area: startFee;
-    &-input {
+   display: flex;
+   flex-direction: column;
+   flex: 0 0 rem(370);
+   justify-content: space-between;
+   @media (max-width: em(1024)) {
+      row-gap: rem(20);
+   }
+   &__row {
       position: relative;
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(10);
       span {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 5px;
+         @include adaptiveValue("font-size", 14, 12);
+         line-height: math.div(19, 14);
+         color: #7b7b7b;
+         position: absolute;
+         top: 50%;
+         right: rem(15);
       }
-    }
-  }
-  &__rate {
-    grid-area: rate;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50px;
-      background-color: #f6f8fc;
-      margin-top: 10px;
-      p {
-        font-weight: bold;
-        color: black;
-        font-size: clamp(12px, 2vw, 20px);
-      }
-    }
-    p {
-      margin: 0;
-    }
-  }
-  &__term {
-    grid-area: term;
-  }
-  &__button {
-    grid-area: button;
-  }
-  &__total {
-    grid-area: total;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50px;
-      background-color: #f6f8fc;
-      margin-top: 10px;
-      p {
-        font-weight: bold;
-        color: black;
-        font-size: clamp(12px, 2vw, 20px);
-      }
-    }
-    p {
-      margin: 0;
-    }
-  }
-}
+   }
 
-.field {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  label {
-    margin-bottom: 12px;
-    font-size: clamp(10px, 2vw, 15px);
-    white-space: nowrap;
-    // &::placeholder {
-    //     color: rgb(158, 156, 156);
-    // }
-  }
-}
+   &__title {
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      color: $colorDarkGrey;
+   }
 
-@media (max-width: 767px) {
-  .calc {
-    grid-template-rows: 35px repeat(3, auto);
-    &__textinput {
-      padding: 6px 8px;
-    }
-    &__total {
-      text-align: center;
-      div {
-        height: 41px;
+   &__input {
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: math.div(22, 16);
+      height: rem(50);
+      background-color: #f6f8fc;
+      padding: 0 rem(15);
+      font-weight: 700;
+   }
+
+   &__slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: rem(2) !important;
+      background-color: $colorBlue;
+      &::-webkit-slider-thumb {
+         -webkit-appearance: none;
+         cursor: pointer;
+         appearance: none;
+         height: rem(10) !important;
+         width: rem(10) !important;
+         border-radius: 50% !important;
+         border: rem(2) solid $colorBlue !important;
+         background-color: #fff !important;
+         @media (any-hover: hover) {
+            &:hover {
+               width: rem(12) !important;
+               height: rem(12) !important;
+            }
+         }
       }
-      p {
-        font-size: clamp(10px, 2vw, 15px);
-      }
-    }
-    &__send {
-      height: 45px;
-    }
-    &__buttons {
-      width: 55px;
-      right: -55px;
-    }
-    &__initialFee-input {
-      width: calc(100% - 55px);
-    }
-  }
+   }
+
+   &__columns {
+   }
+
+   &__button {
+      height: rem(40);
+      width: 100%;
+   }
+}
+.creditCalc-columns {
+   display: flex;
+   justify-content: space-between;
+   @include adaptiveValue("column-gap", 30, 20);
+   &__column {
+      flex: 0 1 50%;
+   }
+
+   &__title {
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: math.div(19, 14);
+      color: $colorDarkGrey;
+      margin-bottom: rem(10);
+   }
+
+   &__value {
+      @include adaptiveValue("font-size", 16, 14);
+      line-height: math.div(22, 16);
+      font-weight: 700;
+      height: rem(50);
+      background: #f6f8fc;
+      display: flex;
+      align-items: center;
+      padding: 0 rem(15);
+   }
 }

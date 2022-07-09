@@ -1,8 +1,10 @@
 .filter-area {
-   padding: 0 rem(8);
+   padding: 0 rem(10);
    height: rem(40);
-   width: rem(218);
-   margin-bottom: rem(20);
+   width: rem(220);
+   @media (max-width: em(768)) {
+      width: 100% !important;
+   }
 
    &__body {
       @include adaptiveValue("font-size", 14, 12);
@@ -11,7 +13,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: space-between;
       span {
          color: $colorDarkGrey;
       }
@@ -22,7 +24,4 @@
       @include adaptiveValue("width", 30, 25);
       font-weight: 700;
    }
-}
-
-.ffff {
 }

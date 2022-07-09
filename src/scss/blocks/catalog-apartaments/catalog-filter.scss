@@ -1,0 +1,20 @@
+.catalog-filters {
+   @include adaptiveValue("padding-top", 40, 30);
+   &__container {
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 30, 20);
+   }
+
+   &__body {
+      @media (max-width: em(768)) {
+         display: none;
+      }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: rem(7);
+      row-gap: rem(30);
+   }
+}

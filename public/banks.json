@@ -1,0 +1,130 @@
+[
+    {
+        "id": 1,
+        "name": "СберБанк",
+        "img": "/img/options-page/calc/sber.png",
+        "startFeeRate": 20,
+        "rate": 16.9,
+        "titleColor": "#21a038"
+    },
+    {
+        "id": 2,
+        "name": "ВТБ",
+        "img": "/img/options-page/calc/VTB.png",
+        "startFeeRate": 20,
+        "rate": 14.7,
+        "titleColor": "#004e7c"
+    },
+    {
+        "id": 3,
+        "name": "Альфа Банк",
+        "img": "/img/options-page/calc/alfa.png",
+        "startFeeRate": 25,
+        "rate": 16.7,
+        "titleColor": "#ee3124"
+    },
+    {
+        "id": 4,
+        "name": "Райффайзен Банк",
+        "img": "/img/options-page/calc/RB.png",
+        "startFeeRate": 15,
+        "rate": 12.7,
+        "titleColor": "#333333"
+    },
+    {
+        "id": 5,
+        "name": "Металлинвест банк",
+        "img": "/img/options-page/calc/MB.png",
+        "startFeeRate": 15,
+        "rate": 15.2,
+        "titleColor": "#004785"
+    },
+    {
+        "id": 6,
+        "name": "Абсолют Банк",
+        "img": "/img/options-page/calc/absolut.png",
+        "startFeeRate": 15,
+        "rate": 12.2,
+        "titleColor": "#7b7b7b"
+    },
+    {
+        "id": 7,
+        "name": "Транскапитал банк",
+        "img": "/img/options-page/calc/TB.png",
+        "startFeeRate": 30,
+        "rate": 10.2,
+        "titleColor": "#004785"
+    },
+    {
+        "id": 8,
+        "name": "Клюква",
+        "img": "/img/options-page/calc/klookva.png",
+        "startFeeRate": 25,
+        "rate": 13.6,
+        "titleColor": "#bc0062"
+    },
+    {
+        "id": 9,
+        "name": "Уралсиб",
+        "img": "/img/options-page/calc/uralsib.png",
+        "startFeeRate": 25,
+        "rate": 13.6,
+        "titleColor": "#004584"
+    },
+    {
+        "id": 10,
+        "name": "Открытие",
+        "img": "/img/options-page/calc/open.png",
+        "startFeeRate": 25,
+        "rate": 13.6,
+        "titleColor": "#00bbe4"
+    },
+    {
+        "id": 11,
+        "name": "Дом.РФ",
+        "img": "/img/options-page/calc/dom.png",
+        "startFeeRate": 25,
+        "rate": 13.6,
+        "titleColor": "#2f454e"
+    },
+    {
+        "id": 12,
+        "name": "Росбанк",
+        "img": "/img/options-page/calc/rosbank.png",
+        "startFeeRate": 25,
+        "rate": 13.6,
+        "titleColor": "#040204"
+    },
+    {
+        "id": 13,
+        "name": "Совкомбанк",
+        "img": "/img/options-page/calc/Sovkombank.png",
+        "startFeeRate": 25,
+        "rate": 13.6,
+        "titleColor": "#005395"
+    },
+    {
+        "id": 14,
+        "name": "УБРиР",
+        "img": "/img/options-page/calc/UBRiR.png",
+        "startFeeRate": 25,
+        "rate": 13.6,
+        "titleColor": "#333333"
+    },
+    {
+        "id": 15,
+        "name": "УЮниКредит",
+        "img": "/img/options-page/calc/uni.png",
+        "startFeeRate": 25,
+        "rate": 13.6,
+        "titleColor": "#333333"
+    },
+    {
+        "id": 16,
+        "name": "ПромСвязьБанк",
+        "img": "/img/options-page/calc/prombank.png",
+        "startFeeRate": 25,
+        "rate": 13.6,
+        "titleColor": "#2c2d84"
+    }
+]

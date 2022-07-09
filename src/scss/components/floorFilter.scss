@@ -1,25 +1,31 @@
 .filter-floor {
-   padding: 0 rem(8);
+   padding: 0 rem(10);
    height: rem(40);
    width: rem(200);
-   margin-bottom: rem(20);
+   @media (max-width: em(768)) {
+      width: 100%;
+   }
 
    &__body {
+      @include adaptiveValue("padding-left", 10, 0);
+      @include adaptiveValue("padding-right", 10, 0);
       @include adaptiveValue("font-size", 14, 12);
       line-height: math.div(19, 14);
       height: 100%;
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: space-between;
       span {
+         white-space: nowrap;
          color: $colorDarkGrey;
       }
    }
 
    &__input {
       text-align: center;
-      width: rem(16);
+      width: 100%;
+      // width: rem(16);
       font-weight: 700;
    }
 }

@@ -1,0 +1,126 @@
+.entrance-filter {
+   width: rem(205) !important;
+   height: rem(40) !important;
+   @include adaptiveValue("font-size", 14, 12);
+   border-bottom: rem(0.5) solid $colorDarkGrey !important;
+   box-shadow: rem(3) rem(3) rem(0) rgba(0, 0, 0, 0.07) !important;
+   line-height: math.div(19, 14);
+   cursor: pointer;
+   @media (max-width: em(768)) {
+      width: 100% !important;
+   }
+
+   .search-wrapper {
+      border: none !important;
+      height: 100%;
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: rem(10);
+      border-top: rem(0.5) solid $colorDarkGrey !important;
+      border-right: rem(0.5) solid $colorDarkGrey !important;
+      border-left: rem(0.5) solid $colorDarkGrey !important;
+      border-radius: 0px !important;
+      @include adaptiveValue("padding-left", 20, 10);
+      @include adaptiveValue("padding-right", 20, 10);
+      padding-top: 0px !important;
+      padding-bottom: 0px !important;
+
+      &::before {
+         content: "Подъезд";
+      }
+
+      &::after {
+         @extend %ic;
+         content: "\e900";
+         display: block;
+         color: $colorBlue;
+         font-size: rem(10);
+         padding-top: rem(5);
+         font-weight: 700;
+      }
+   }
+
+   .searchBox {
+      cursor: pointer !important;
+      text-align: right;
+      margin: 0px !important;
+      padding-bottom: rem(1);
+      width: rem(65) !important;
+      &::placeholder {
+         color: $colorDarkGrey;
+      }
+      @media (max-width: em(768)) {
+         width: 100% !important;
+      }
+   }
+   .optionListContainer {
+      background-color: #fff;
+      @include adaptiveValue("padding-left", 20, 10);
+      @include adaptiveValue("padding-right", 20, 10);
+      @include adaptiveValue("padding-bottom", 20, 10);
+      @include adaptiveValue("padding-top", 10, 0);
+      margin: rem(-1) 0px 0px 0px !important;
+      width: 100% !important;
+      left: 0px !important;
+      border-top: none !important;
+      border-bottom: rem(0.5) solid $colorDarkGrey !important;
+      border-right: rem(0.5) solid $colorDarkGrey !important;
+      border-left: rem(0.5) solid $colorDarkGrey !important;
+      box-shadow: rem(3) rem(3) rem(0) rgba(0, 0, 0, 0.07) !important;
+      border-radius: 0 !important;
+   }
+
+   .optionContainer {
+      display: flex;
+      justify-content: space-between;
+      column-gap: rem(10);
+      border: none !important;
+      overflow: hidden;
+   }
+
+   .option {
+      padding: 0px !important;
+      display: flex !important;
+      justify-content: start;
+      align-items: center;
+      column-gap: rem(5);
+      &::before {
+         content: "";
+         color: #fff;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: rem(16);
+         height: rem(16);
+         border-radius: 50%;
+         border: rem(0.5) solid $colorDarkGrey;
+      }
+
+      &:hover {
+         background: none !important;
+         color: inherit !important;
+      }
+   }
+
+   .checkbox {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+   }
+
+   .selected {
+      &::before {
+         @extend %ic;
+         content: "\e901";
+         font-size: rem(8);
+         background-color: $colorBlue;
+      }
+   }
+
+   .highlightOption {
+      background: none !important;
+      color: inherit !important;
+   }
+}

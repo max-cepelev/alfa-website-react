@@ -1,0 +1,36 @@
+.commerce-filters {
+   @include adaptiveValue("padding-top", 40, 30);
+   &__container {
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 30, 20);
+   }
+
+   &__body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @media (max-width: em(768)) {
+         display: none;
+      }
+   }
+
+   &__top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: rem(7);
+      row-gap: rem(20);
+      margin-bottom: rem(30);
+   }
+
+   &__setting {
+      display: flex;
+      column-gap: rem(35);
+      margin-bottom: rem(20);
+   }
+
+   &__button {
+   }
+}

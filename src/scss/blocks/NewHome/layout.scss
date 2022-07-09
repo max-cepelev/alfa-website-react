@@ -6,9 +6,31 @@
    }
 }
 
+.layout-home-filters {
+   &__title {
+      @include adaptiveValue("font-size", 22, 18);
+      line-height: math.div(30, 22);
+      font-weight: 700;
+      @include adaptiveValue("margin-bottom", 30, 10);
+   }
+
+   &__body {
+      display: flex;
+      justify-content: start;
+      column-gap: rem(10);
+      flex-wrap: wrap;
+      row-gap: rem(15);
+      @include adaptiveValue("padding-bottom", 45, 10);
+      border-bottom: rem(1) solid #dddddd;
+      @media (max-width: em(768)) {
+         display: none;
+      }
+   }
+}
+
 .plan-home {
    position: relative;
-   @include adaptiveValue("margin-top", 40, 10, 1170, 1024, 1);
+   @include adaptiveValue("margin-top", 40, 20);
    @include adaptiveValue("margin-bottom", 70, 20);
 
    &__top {

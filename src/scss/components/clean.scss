@@ -1,0 +1,21 @@
+.clean {
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   column-gap: rem(10);
+   @include adaptiveValue("font-size", 14, 12);
+   line-height: math.div(19, 14);
+   &::before {
+      // padding-top: rem(2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: rem(16);
+      height: rem(16);
+      border-radius: 50%;
+      background-color: $colorOrange;
+      color: #fff;
+      font-size: rem(7);
+      font-weight: 700;
+   }
+}

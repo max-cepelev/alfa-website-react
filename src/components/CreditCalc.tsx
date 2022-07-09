@@ -1,3 +1,4 @@
+import { Slider } from 'antd'
 import React, { useEffect, useState } from 'react'
 
 interface Props {
@@ -10,10 +11,10 @@ interface Props {
 export default function CreditCalc({
   initPrice = 6000000,
   rate = 6.5,
-  initStartFeeRate = 0.2,
+  initStartFeeRate = 20,
 }: Props) {
   const [price, setPrice] = useState(initPrice)
-  const [startFee, setStartFee] = useState(initPrice * initStartFeeRate)
+  const [startFee, setStartFee] = useState(initPrice * (initStartFeeRate / 100))
   const [startFeeRate, setStartFeeRate] = useState(initStartFeeRate)
   const [creditTerm, setCreditTerm] = useState(15)
   const [total, setTotal] = useState(0)
@@ -48,6 +49,10 @@ export default function CreditCalc({
   }, [price])
 
   useEffect(() => {
+    setStartFee(Math.round(price * (initStartFeeRate / 100)))
+  }, [initStartFeeRate])
+
+  useEffect(() => {
     const value = price > 0 ? (startFee / price) * 100 : 0
     setStartFeeRate(+value)
   }, [price, startFee])
@@ -59,98 +64,87 @@ export default function CreditCalc({
 
     const creditSum = price - startFee
 
-    let pay =
+    const pay =
       creditSum *
       (interestRate + interestRate / ((1 + interestRate) ** term - 1))
 
     if (!isNaN(pay) && isFinite(pay)) {
-      let localPay = pay
-      setTotal(localPay)
+      setTotal(pay)
     }
-  }, [creditTerm, price, startFee])
+  }, [rate, creditTerm, price, startFee])
 
   return (
     <div className="creditCalc">
-      <div className="creditCalc__price field">
-        <label htmlFor="apartmentCost">Стоимость квартиры, руб</label>
+      <div className="creditCalc__row">
+        <label className="creditCalc__title" htmlFor="apartmentCost">
+          Стоимость квартиры, руб
+        </label>
         <input
-          className="creditCalc__textinput"
+          className="creditCalc__input"
           type="text"
           name="apartmentCost"
           value={price}
           onChange={costChange}
         />
-        <input
-          className="creditCalc__slider creditCalc__initialFee-slider"
-          type="range"
-          min={0}
+        <Slider
           max={initPrice}
           value={price}
-          step={5000}
-          onChange={costChange}
+          onChange={(e) => setPrice(e)}
+          tooltipVisible={false}
         />
       </div>
-      <div className="creditCalc__initialFee field">
-        <label htmlFor="startFee">Первоначальный взнос, руб</label>
-        <div className="creditCalc__initialFee-input">
-          <input
-            className="creditCalc__textinput"
-            type="text"
-            name="startFee"
-            value={startFee}
-            onChange={startFeeChange}
-          />
-          <span>
-            {startFeeRate.toLocaleString('ru-RU', {
-              maximumFractionDigits: 1,
-            })}
-            %
-          </span>
-        </div>
+      <div className="creditCalc__row">
+        <label className="creditCalc__title" htmlFor="startFee">
+          Первоначальный взнос, руб
+        </label>
         <input
-          className="creditCalc__slider creditCalc__initialFee-slider"
-          type="range"
-          min={0}
-          max={price}
+          className="creditCalc__input"
+          type="text"
+          name="startFee"
           value={startFee}
-          step={5000}
           onChange={startFeeChange}
         />
+        <span>{startFeeRate.toFixed()}%</span>
+        <Slider
+          max={price}
+          value={startFee}
+          onChange={(e) => setStartFee(e)}
+          tooltipVisible={false}
+        />
       </div>
-      <div className="creditCalc__term field">
-        <label htmlFor="creditTerm">Срок кредита, лет</label>
+      <div className="creditCalc__row">
+        <label className="creditCalc__title" htmlFor="creditTerm">
+          Срок кредита, лет
+        </label>
         <input
-          className="creditCalc__textinput"
+          className="creditCalc__input"
           type="text"
           name="creditTerm"
           value={creditTerm}
           onChange={handleTermChange}
         />
-        <input
-          name="creditTerm"
-          type="range"
-          min="0"
-          max="50"
+        <Slider
+          max={40}
           value={creditTerm}
-          onChange={handleTermChange}
-          className="creditCalc__slider"
+          onChange={(e) => setCreditTerm(e)}
+          tooltipVisible={false}
         />
       </div>
-      <div className="creditCalc__total">
-        <p>Ежемесячный платёж</p>
-        <div>
-          <p className="text">
+      <div className="creditCalc__columns creditCalc-columns">
+        <div className="creditCalc-columns__column">
+          <div className="creditCalc-columns__title">Ежемесячный платеж</div>
+          <div className="creditCalc-columns__value">
             {total.toLocaleString('ru-RU', {
               style: 'currency',
               currency: 'RUB',
             })}
-          </p>
+          </div>
         </div>
-      </div>
-      <div className="creditCalc__rate">
-        <p>Ставка по кредиту</p>
-        <div>
-          <p className="text">{rate.toLocaleString('ru-RU')}%</p>
+        <div className="creditCalc-columns__column">
+          <div className="creditCalc-columns__title">Ставка по кредиту</div>
+          <div className="creditCalc-columns__value">
+            {rate.toLocaleString('ru-RU')}%
+          </div>
         </div>
       </div>
       <button className="creditCalc__button btn-orange">

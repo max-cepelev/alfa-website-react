@@ -1,0 +1,114 @@
+.time-filter {
+   width: rem(140) !important;
+   height: rem(40) !important;
+   @include adaptiveValue("font-size", 14, 12);
+   box-shadow: rem(3) rem(3) rem(0) rgba(0, 0, 0, 0.07) !important;
+   line-height: math.div(19, 14);
+   border-bottom: rem(0.5) solid $colorDarkGrey !important;
+   cursor: pointer;
+   @media (max-width: em(768)) {
+      width: 100% !important;
+   }
+
+   .search-wrapper {
+      border: none !important;
+      height: 100%;
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      border-top: rem(0.5) solid $colorDarkGrey !important;
+      border-right: rem(0.5) solid $colorDarkGrey !important;
+      border-left: rem(0.5) solid $colorDarkGrey !important;
+      border-radius: 0px !important;
+      @include adaptiveValue("padding-left", 20, 10);
+      @include adaptiveValue("padding-right", 20, 10);
+      padding-top: 0px !important;
+      padding-bottom: 0px !important;
+
+      &::before {
+         content: "Срок сдачи";
+      }
+
+      &::after {
+         @extend %ic;
+         content: "\e900";
+         display: block;
+         color: $colorBlue;
+         font-size: rem(10);
+         padding-top: rem(5);
+         font-weight: 700;
+      }
+   }
+
+   .searchBox {
+      width: 0px !important;
+   }
+   .optionListContainer {
+      @include adaptiveValue("padding-bottom", 20, 10);
+      background-color: #fff;
+      width: rem(140) !important;
+      width: 100% !important;
+      left: 0px !important;
+      border-top: none !important;
+      margin: rem(-1) 0px 0px 0px !important;
+      border-bottom: rem(0.5) solid $colorDarkGrey !important;
+      border-right: rem(0.5) solid $colorDarkGrey !important;
+      border-left: rem(0.5) solid $colorDarkGrey !important;
+      box-shadow: rem(3) rem(3) rem(0) rgba(0, 0, 0, 0.07) !important;
+      border-radius: 0 !important;
+   }
+
+   .optionContainer {
+      max-height: rem(140) !important;
+      border: none !important;
+      margin-right: rem(10) !important;
+      @media (max-width: em(768)) {
+         display: grid;
+         grid-template-columns: repeat(2, auto);
+         justify-content: space-between;
+      }
+      &::-webkit-scrollbar {
+         width: rem(5);
+         height: rem(5);
+      }
+      &::-webkit-scrollbar-track {
+         border-radius: rem(3);
+         background-color: #f6f8fc;
+      }
+      &::-webkit-scrollbar-thumb {
+         background-color: $colorDarkGrey;
+         border-radius: rem(10);
+      }
+   }
+
+   .option {
+      @include adaptiveValue("padding-left", 20, 10);
+      padding-top: rem(7) !important;
+      padding-bottom: rem(7) !important;
+      padding-right: rem(5) !important;
+      display: flex !important;
+      align-items: center;
+      column-gap: rem(5);
+      transition: all 0.3s ease 0s;
+      &:hover {
+         background-color: #f6f8fc;
+         color: inherit;
+      }
+   }
+
+   .checkbox {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+   }
+
+   .selected {
+      background-color: #f6f8fc !important;
+   }
+
+   .highlightOption {
+      background-color: #fff;
+      color: $mainColor;
+   }
+}

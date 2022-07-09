@@ -1,5 +1,10 @@
 .table {
-   @include adaptiveValue("padding-bottom", 40, 30);
+   padding-top: rem(40);
+   @include adaptiveValue("padding-bottom", 70, 30);
+   @media (max-width: em(768)) {
+      padding-top: 0px;
+      margin-top: rem(-30);
+   }
 
    &__container {
    }

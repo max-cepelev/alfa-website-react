@@ -1,10 +1,27 @@
-import React from 'react'
+import React from "react";
+import RoomsFilter from "../../components/filters/RoomsFilter";
+import EntranceFilter from "../../components/filters/EntranceFilter";
+import FloorFilter from "../../components/filters/FloorFilter";
+import PriceFilter from "../../components/filters/PriceFilter";
+import ButtonWatch from "../../components/ButtonWatch";
+import ButtonFilters from "../../components/ButtonFilters";
 
 export default function Layout() {
   return (
     <section className="layout-home">
       <div className="layout-home__container">
         <div className="layout-home__title title">Планировки</div>
+        <form action="#" className="layout-home__filters layout-home-filters">
+          <div className="layout-home-filters__title">выберите квартиру</div>
+          <div className="layout-home-filters__body">
+            <RoomsFilter />
+            <EntranceFilter />
+            <FloorFilter minValue={0} maxValue={15} />
+            <PriceFilter minValue={5000000} maxValue={10000000} />
+            <ButtonWatch title="Смотреть 530 квартир" />
+          </div>
+          <ButtonFilters />
+        </form>
         <div className="layout-home__plan plan-home">
           <div className="plan-home__top">
             <div className="plan-home__text text">
@@ -114,5 +131,5 @@ export default function Layout() {
         </div>
       </div>
     </section>
-  )
+  );
 }

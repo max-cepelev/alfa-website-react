@@ -86,7 +86,7 @@ body {
 }
 
 //Подключение стилей==========================================================================================================================================
-@import 'base/common.scss';
+@import './base/common.scss';
 @import 'blocks/header.scss';
 @import 'blocks/footer.scss';
 
@@ -97,18 +97,22 @@ body {
 @import 'blocks/table.scss';
 
 //Подключение повторяющий элементов==========================================================================================================================
-@import 'components/button-more.scss';
-@import 'components/creditCalc.scss';
-@import 'components/calc.scss';
-@import 'components/priceFilter.scss';
-@import 'components/range.scss';
-@import 'components/roomsFilter.scss';
-@import 'components/areaFilter.scss';
-@import 'components/floorFilter.scss';
-@import 'components/buttonWatch.scss';
-@import 'components/buttonFilters.scss';
-@import 'components/locationFilter';
-@import 'components/locationFilter2';
+@import './components/button-more.scss';
+@import './components/creditCalc.scss';
+@import './components/priceFilter.scss';
+@import './components/range.scss';
+@import './components/roomsFilter.scss';
+@import './components/areaFilter.scss';
+@import './components/floorFilter.scss';
+@import './components/buttonWatch.scss';
+@import './components/buttonFilters.scss';
+@import './components/locationFilter.scss';
+@import './components/complexFilter.scss';
+@import './components/timeFilter.scss';
+@import './components/entranceFilter.scss';
+@import './components/reserve.scss';
+@import './components/clean.scss';
+@import './components/roomTypeFilter.scss';
 
 //Подключение блоков страниц==========================================================================================================================
 //Главная===============================================================================================================================================
@@ -128,6 +132,8 @@ body {
 //Карточка квартиры============================================================================================================================================
 @import 'blocks/card-apartaments/apartaments.scss';
 @import 'blocks/card-apartaments/apartaments-slider.scss';
+//Каталог квартир===============================================================================================================================================
+@import 'blocks/catalog-apartaments/catalog-filter.scss';
 //Новости=================================================================================================================================================
 @import 'blocks/News/news.scss';
 @import 'blocks/article/article.scss';
@@ -157,8 +163,15 @@ body {
 @import 'blocks/parking/parking.scss';
 //Кладовая===========================================================================================================================================
 @import 'blocks/larder/larder.scss';
-//Коммерция=============================================================================================================================================
+//карточка Коммерция=============================================================================================================================================
 @import 'blocks/card-commerce/card-commerce.scss';
+//Коммерция=============================================================================================================================================
+@import 'blocks/commerce/commerce-filetrs.scss';
+@import './components/locationCommerceFilter.scss';
+@import 'blocks/commerce/table-commerce.scss';
+//Аренда коммерции===========================================================================================================================================
+@import 'blocks/RentCommerce/RentCommerceFilters.scss';
+@import 'blocks/RentCommerce/RentCommerceTable.scss';
 //Покупателям==============================================================================================================================================
 @import 'blocks/client/client-nav.scss';
 @import 'blocks/client/guarantee.scss';
@@ -166,6 +179,7 @@ body {
 
 //способы приобретения========================================================================================================================================
 @import './components/creditCalc.scss';
+@import './components/calc.scss';
 @import 'blocks/options/options-nav.scss';
 @import 'blocks/options/good-buy.scss';
 @import 'blocks/options/hypothec.scss';
@@ -174,3 +188,7 @@ body {
 @import 'blocks/options/subsidies.scss';
 @import 'blocks/options/trade-in.scss';
 @import 'blocks/options/useful.scss';
+//Попап================================================================================================================================================
+@import 'popup/MobileCommerceFilter.scss';
+@import 'popup/MobileFilter.scss';
+@import 'popup/MobileRentFilters.scss';
